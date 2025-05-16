@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfn7xb27xfibd"]
+
+[ext_resource type="Script" uid="uid://dxaqhew2drkun" path="res://Sistemas/Armas_e_ferramentas/Projeteis/projetil_cura.gd" id="1_no64b"]
+[ext_resource type="Texture2D" uid="uid://bcs4j0eyxaohf" path="res://Resouces/icones/cruz-vermelha.png" id="2_2h7v4"]
+[ext_resource type="Resource" uid="uid://cdiv0ft1a2nkq" path="res://Scripts/Efeitos_Status/aplicar_cura_unica_base.tres" id="2_66iwy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3onwi"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66iwy"]
+albedo_color = Color(0.185401, 0.808651, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tj6io"]
+radius = 0.2
+
+[node name="Projetil_Cura" type="Area3D"]
+collision_layer = 4
+script = ExtResource("1_no64b")
+icone_projetil = ExtResource("2_2h7v4")
+aplicar_cura = ExtResource("2_66iwy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_3onwi")
+surface_material_override/0 = SubResource("StandardMaterial3D_66iwy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tj6io")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

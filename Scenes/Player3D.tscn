@@ -1,0 +1,221 @@
+[gd_scene load_steps=21 format=3 uid="uid://tpfq6twq071"]
+
+[ext_resource type="Script" uid="uid://dlrqfcg08yqvo" path="res://Scripts/player_moves.gd" id="1_4exyh"]
+[ext_resource type="Script" uid="uid://c8r61ngv53j4" path="res://Scripts/camera_3d.gd" id="1_07bfi"]
+[ext_resource type="Resource" uid="uid://2m6cill2ui02" path="res://Scripts/Efeitos_Status/player_status_base.tres" id="2_ykoex"]
+[ext_resource type="Script" uid="uid://b0kapbicmb267" path="res://Sistemas/Sistema_de_inventarios/inventario_base.gd" id="3_7iv82"]
+[ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://Resouces/Personagens/Player/gdquest_gobot/gobot_skin.tscn" id="3_w2uw3"]
+[ext_resource type="Script" uid="uid://d30il84setl4f" path="res://Scripts/player_hud.gd" id="4_qxy1y"]
+[ext_resource type="Texture2D" uid="uid://dxyxxg3h3dx0b" path="res://Resouces/icones/icon.svg" id="7_1slkm"]
+[ext_resource type="Script" uid="uid://bi6x2uevrfv1x" path="res://Scripts/sistema_ataque.gd" id="7_5p3ek"]
+[ext_resource type="PackedScene" uid="uid://ce5npyafysa0b" path="res://Sistemas/Barra_Vida_Flutuante/barra_vida_flutuante.tscn" id="7_ymltb"]
+[ext_resource type="Script" uid="uid://g25d3a5wvn2s" path="res://Sistemas/Sistema_Minimapa/minimapa.gd" id="8_lmpy5"]
+[ext_resource type="PackedScene" uid="uid://1oex1ot6dla6" path="res://Sistemas/Armas_e_ferramentas/Projeteis/projetil_dano.tscn" id="8_ymltb"]
+[ext_resource type="PackedScene" uid="uid://bfn7xb27xfibd" path="res://Sistemas/Armas_e_ferramentas/Projeteis/projetil_cura.tscn" id="9_r8rhd"]
+[ext_resource type="PackedScene" uid="uid://c3vh3rh3kojay" path="res://Sistemas/Barras_de_status_HUD/Barras_de_status_HUD.tscn" id="10_a8kom"]
+[ext_resource type="Script" uid="uid://og43im8y66ee" path="res://Sistemas/Sistema_de_inventarios/hud_inventarios.gd" id="16_7iv82"]
+
+[sub_resource type="Resource" id="Resource_gk2qc"]
+script = ExtResource("3_7iv82")
+tamanho_inventario = 30
+dono_do_inventario = ""
+metadata/_custom_type_script = "uid://b0kapbicmb267"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3plgq"]
+radius = 0.443682
+height = 1.39689
+
+[sub_resource type="Gradient" id="Gradient_lmpy5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ofwv"]
+gradient = SubResource("Gradient_lmpy5")
+fill_from = Vector2(0.00854701, 0)
+
+[sub_resource type="Gradient" id="Gradient_qxdyp"]
+colors = PackedColorArray(0, 0, 0, 0.380392, 0, 0, 0, 0.121569)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h86aj"]
+gradient = SubResource("Gradient_qxdyp")
+
+[node name="Player3D" type="CharacterBody3D" node_paths=PackedStringArray("hud_inventarios", "local_inventario_player") groups=["Jogadores"]]
+script = ExtResource("1_4exyh")
+player_status = ExtResource("2_ykoex")
+inventario = SubResource("Resource_gk2qc")
+hud_inventarios = NodePath("HudInventarios")
+local_inventario_player = NodePath("HudInventarios/Panel/TextureRect/Local_Player_Inventario")
+
+[node name="GobotSkin" parent="." instance=ExtResource("3_w2uw3")]
+script = null
+
+[node name="RayCastPlayer" type="RayCast3D" parent="GobotSkin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.957284, 0.772086)
+target_position = Vector3(0, 0, 150)
+
+[node name="Player_Camera_Pivot" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53305, 0)
+script = ExtResource("1_07bfi")
+target = NodePath("..")
+
+[node name="PlayerSpringArm" type="SpringArm3D" parent="Player_Camera_Pivot"]
+spring_length = 40.0
+
+[node name="PlayerCamera" type="Camera3D" parent="Player_Camera_Pivot/PlayerSpringArm"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702196, 0)
+shape = SubResource("CapsuleShape3D_3plgq")
+
+[node name="Player_Hud" type="Control" parent="." node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_qxy1y")
+player = NodePath("..")
+
+[node name="MarginDisplay_Skill" type="PanelContainer" parent="Player_Hud"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Player_Hud/MarginDisplay_Skill"]
+layout_mode = 2
+
+[node name="Display_Skill" type="TextureRect" parent="Player_Hud/MarginDisplay_Skill/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_1slkm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Minimapa" type="Control" parent="Player_Hud"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 150.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Player_Hud/Minimapa"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4ofwv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Player_Hud/Minimapa"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Player_Hud/Minimapa/MarginContainer"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Player_Hud/Minimapa/MarginContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(140, 140)
+render_target_update_mode = 4
+
+[node name="Camera_Minimapa" type="Camera3D" parent="Player_Hud/Minimapa/MarginContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_minimapa", "player")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.071, -0.445802)
+projection = 1
+size = 4.333
+script = ExtResource("8_lmpy5")
+camera_minimapa = NodePath(".")
+player = NodePath("../../../../../..")
+
+[node name="Barras_de_status_HUD" parent="Player_Hud" instance=ExtResource("10_a8kom")]
+layout_mode = 1
+
+[node name="Sistema_Ataque" type="Node" parent="." node_paths=PackedStringArray("raycast_projetil", "display_skill")]
+script = ExtResource("7_5p3ek")
+raycast_projetil = NodePath("../GobotSkin/RayCastPlayer")
+cena_projetil_dano = ExtResource("8_ymltb")
+cena_projetil_cura = ExtResource("9_r8rhd")
+display_skill = NodePath("../Player_Hud/MarginDisplay_Skill/MarginContainer/Display_Skill")
+
+[node name="Raycast_Projetil" type="RayCast3D" parent="Sistema_Ataque"]
+
+[node name="Barra_Vida_Flutuante" parent="." instance=ExtResource("7_ymltb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66884, 0)
+visible = false
+
+[node name="HudInventarios" type="Control" parent="." node_paths=PackedStringArray("hud_inventarios")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_7iv82")
+hud_inventarios = NodePath(".")
+
+[node name="Panel" type="MarginContainer" parent="HudInventarios"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HudInventarios/Panel"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_h86aj")
+
+[node name="Local_Player_Inventario" type="PanelContainer" parent="HudInventarios/Panel/TextureRect"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -179.0
+offset_bottom = 180.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HudInventarios/Panel/TextureRect/Local_Player_Inventario"]
+layout_mode = 2
+color = Color(0.101961, 1, 1, 0.419608)
+
+[node name="PanelContainer" type="PanelContainer" parent="HudInventarios/Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 274.0
+offset_top = -177.0
+offset_right = 400.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HudInventarios/Panel/TextureRect/PanelContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0.580392)

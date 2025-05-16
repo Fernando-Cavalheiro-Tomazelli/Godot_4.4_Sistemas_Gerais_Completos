@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BuffHpBase" load_steps=2 format=3 uid="uid://csocv48c8665g"]
+
+[ext_resource type="Script" uid="uid://hrlalk6ygedl" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/buff_+hp_base.gd" id="1_qouw5"]
+
+[resource]
+script = ExtResource("1_qouw5")
+nome_efeito = "EfeitoDe80Hp"
+efeito_porcentagem = 0.8
+efeito_duracao = 10.0
+metadata/_custom_type_script = "uid://hrlalk6ygedl"

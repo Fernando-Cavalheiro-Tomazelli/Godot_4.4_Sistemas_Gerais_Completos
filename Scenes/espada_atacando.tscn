@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddg0esl3o8xwi"]
+
+[ext_resource type="Script" uid="uid://dbc1wqxbqjceb" path="res://Scripts/espada_atacando.gd" id="1_olwyi"]
+
+[node name="EspadaAtacando" type="Node3D"]
+script = ExtResource("1_olwyi")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddb7alpyk33mp"]
+
+[ext_resource type="Script" uid="uid://dn1nq4fptg4mq" path="res://Scripts/area_cura.gd" id="1_ludhx"]
+[ext_resource type="Script" uid="uid://d3je2xv7nu2sh" path="res://Scripts/Classes/aplicar_cura.gd" id="2_1yo6v"]
+
+[sub_resource type="Resource" id="Resource_1yo6v"]
+script = ExtResource("2_1yo6v")
+cura = 30.0
+metadata/_custom_type_script = "uid://d3je2xv7nu2sh"
+
+[sub_resource type="BoxMesh" id="BoxMesh_cqsat"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ludhx"]
+albedo_color = Color(0.0823529, 1, 0.188235, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yo6v"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e62uy"]
+size = Vector3(3.5, 0.3, 3.5)
+
+[node name="AreaCura" type="StaticBody3D"]
+script = ExtResource("1_ludhx")
+curar = SubResource("Resource_1yo6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cqsat")
+surface_material_override/0 = SubResource("StandardMaterial3D_ludhx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1yo6v")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152196, 0)
+shape = SubResource("BoxShape3D_e62uy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

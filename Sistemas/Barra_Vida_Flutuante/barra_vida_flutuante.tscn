@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce5npyafysa0b"]
+
+[ext_resource type="Script" uid="uid://cq76a5mtrgu05" path="res://Sistemas/Barra_Vida_Flutuante/barra_vida_flutuante.gd" id="1_xnyhk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0qtxf"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfg5r"]
+bg_color = Color(0.968627, 0.317647, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54lgx"]
+bg_color = Color(0.6, 0.956863, 0.184314, 1)
+
+[node name="Barra_Vida_Flutuante" type="Node3D" node_paths=PackedStringArray("barra_vida")]
+script = ExtResource("1_xnyhk")
+barra_vida = NodePath("SubViewport/MarginContainer/ProgressBar")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("ViewportTexture_0qtxf")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(105, 12)
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport/MarginContainer"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_sfg5r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_54lgx")
+value = 20.0
+show_percentage = false

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://n2dxmwjvtnrj"]
+
+[ext_resource type="Script" uid="uid://cga71rn32po8w" path="res://Resouces/Personagens/inimigos/inimigo_medio.gd" id="1_i71pt"]
+[ext_resource type="Script" uid="uid://div2ng038opl4" path="res://Sistemas/Sistema_de_status_e_atributos/base_status_data.gd" id="2_h4jcf"]
+[ext_resource type="PackedScene" uid="uid://ce5npyafysa0b" path="res://Sistemas/Barra_Vida_Flutuante/barra_vida_flutuante.tscn" id="3_o782f"]
+
+[sub_resource type="Resource" id="Resource_4vwhg"]
+script = ExtResource("2_h4jcf")
+nome = ""
+vida_max = 1000.0
+vida_atual = 0.0
+energia_max = 0.0
+energia_atual = 0.0
+fome_max = 0.0
+fome_atual = 0.0
+sede_max = 0.0
+velocidade = 0.0
+defesa = 500.0
+ataque_minimo = 0.0
+ataque_maximo = 0.0
+percentual_reducao_dano = 0.0
+percentual_penetracao_armadura = 0.0
+chance_critica = 0.0
+dano_critico = 0.0
+tempo_intervalo_recuperar_passiva = 1.0
+valor_recuperar_vida_passiva = 25.0
+valor_recuperar_energia_passiva = 1.0
+valor_diminuir_fome_passiva = 1.0
+metadata/_custom_type_script = "uid://div2ng038opl4"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1vr66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vwhg"]
+albedo_color = Color(1, 0.447059, 0.317647, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ayero"]
+
+[node name="Inimigo_medio" type="CharacterBody3D"]
+script = ExtResource("1_i71pt")
+player_status = SubResource("Resource_4vwhg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_1vr66")
+surface_material_override/0 = SubResource("StandardMaterial3D_4vwhg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ayero")
+
+[node name="Barra_Vida_Flutuante" parent="." instance=ExtResource("3_o782f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24848, 0)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66272, 0)
+billboard = 1
+text = "Inimigo Medio"
+font_size = 80
+outline_size = 25

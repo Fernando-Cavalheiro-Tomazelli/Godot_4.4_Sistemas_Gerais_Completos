@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://bmv4un7d7mqib"]
+
+[ext_resource type="Texture2D" uid="uid://c42oksh0qy4bm" path="res://Resouces/icones/e-book.png" id="1_1acjo"]
+[ext_resource type="Script" uid="uid://bwxgvo4ot73ij" path="res://Sistemas/Sistema_de_inventarios/item_base.gd" id="1_j0qwg"]
+
+[resource]
+script = ExtResource("1_j0qwg")
+nome = "Livro Azul"
+descricao = "Um belo livro azul."
+icone = ExtResource("1_1acjo")
+estacavel = false
+quantidade_da_pilha = 0
+caminho_cena_item_3d = "res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul.tscn"
+metadata/_custom_type_script = "uid://bwxgvo4ot73ij"

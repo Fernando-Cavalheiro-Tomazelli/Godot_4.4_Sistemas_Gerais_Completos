@@ -1,0 +1,2 @@
+# Para ter um layout de HUD resposívo e adaptável usar sempre âcoras ao invés de medidas em pixel.
+# Deixar os itens internos ocupando o espaço todo do container acima, e medir o tamanho pelo container pai.

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsownd8njeoui"]
+
+[ext_resource type="Script" uid="uid://bgua6uh8s6qy0" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca_3d.gd" id="1_i3pd6"]
+[ext_resource type="Resource" uid="uid://bmv4un7d7mqib" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul.tres" id="2_i3pd6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttr2j"]
+size = Vector3(0.5, 0.7, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pd6"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txkkd"]
+size = Vector3(0.5, 0.7, 0.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u0wbd"]
+radius = 0.911
+
+[node name="Livro3D" type="StaticBody3D"]
+script = ExtResource("1_i3pd6")
+item = ExtResource("2_i3pd6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ttr2j")
+surface_material_override/0 = SubResource("StandardMaterial3D_i3pd6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_txkkd")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_u0wbd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs43h3jqwlpfg"]
+
+[ext_resource type="Script" uid="uid://chexds47pxq31" path="res://Sistemas/Valores_flutuantes/valores_flutuantes.gd" id="1_aotc8"]
+
+[node name="Valores_Flutuantes" type="Label3D" node_paths=PackedStringArray("label_valor")]
+billboard = 1
+modulate = Color(0.945098, 0.917647, 0, 1)
+text = "test 77"
+font_size = 100
+outline_size = 15
+script = ExtResource("1_aotc8")
+label_valor = NodePath(".")

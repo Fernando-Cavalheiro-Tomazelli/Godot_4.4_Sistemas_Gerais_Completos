@@ -1,0 +1,7 @@
+# O sistema de status e atributos é centralizado, é o Resource onde ficam todos os atributos do
+player ou inimigo, dos personagens em geral, atributos como vida, energia, velocidade, nível, passivas,
+crítico entre outros, e os outros recursos externos somente interagem com esse recurso de status.
+# Como um Resource não tem processamento padrão como um nó, exemplo de funções _process() e ready(),
+é importante dentro do resource implementar uma função para inicializar o status, e uma de atualizar
+o tick(delta), e essas funções serão chamadas onde o status for colocado no caso o player ou inimigo.
+o ready() do player chamara a função de inicialização do status, e o _process() chamará a de tick(delta).

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EstadoPerseguir" load_steps=2 format=3 uid="uid://cio2oblcns87e"]
+
+[ext_resource type="Script" uid="uid://bmfw1ob4gg4vl" path="res://Sistemas/Maquina_de_estados/estado_perseguir.gd" id="1_rjnhv"]
+
+[resource]
+script = ExtResource("1_rjnhv")
+velocidade = 3.0
+metadata/_custom_type_script = "uid://bmfw1ob4gg4vl"

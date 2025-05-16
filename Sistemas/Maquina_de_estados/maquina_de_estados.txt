@@ -1,0 +1,8 @@
+A máquina de estados é basicamente um acoplado de códigos genéricos que foram criados
+de forma modular e independente e causam um comportamente específico onde for adicionado,
+exemplo da uma máquina de estados que tenha idle, perseguir e atacar, vc implementa no idle,
+a lógica para o inimigo ficar parado ou fazendo alguma coisa específica, quando ele vai te perse,
+guir ele troca para o estado perseguindo que tem a lógica de te perseguir, e quando chega perto,
+muda para o estado de atacar que tem a lógica de atacar.
+Assim é possível acoplar várias lógicas de estado em uma lista, e exporta a lista para o alvo, e usar
+os estados necessários dependendo o caso, fica mais práticao para um sistema modular.

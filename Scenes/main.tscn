@@ -1,0 +1,157 @@
+[gd_scene load_steps=27 format=3 uid="uid://d1m85c2diq11y"]
+
+[ext_resource type="Script" uid="uid://dgxnjbp4ieojf" path="res://Scenes/main_world.gd" id="1_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://dxyxxg3h3dx0b" path="res://Resouces/icones/icon.svg" id="1_hx564"]
+[ext_resource type="PackedScene" uid="uid://cj747uvjc5tqh" path="res://Scenes/Cenas_Para_Testes/area_dano_continuo.tscn" id="2_344ge"]
+[ext_resource type="PackedScene" uid="uid://tpfq6twq071" path="res://Scenes/Player3D.tscn" id="2_kkqpb"]
+[ext_resource type="PackedScene" uid="uid://byijw716i0ths" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_dano_continuo.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://ddb7alpyk33mp" path="res://Scenes/Cenas_Para_Testes/area_cura_unica.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bw0lin78g1oeu" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_buff_aumento_vida.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://ddtd5407hublj" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_cura_continua.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://cgrsqbmltoi8r" path="res://Scenes/Cenas_Para_Testes/area_dano_unico.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://pnetoiqyfrsi" path="res://Scenes/Cenas_Para_Testes/area_cura_continua.tscn" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://1oex1ot6dla6" path="res://Sistemas/Armas_e_ferramentas/Projeteis/projetil_dano.tscn" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://clsw8jsd4bcxk" path="res://Resouces/Personagens/inimigos/inimigo_fraco.tscn" id="12_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://n2dxmwjvtnrj" path="res://Resouces/Personagens/inimigos/inimigo_medio.tscn" id="13_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://bjm370p2u6fkh" path="res://Resouces/Personagens/inimigos/inimigo_forte.tscn" id="14_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://ckpmiucyotasq" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/Maca3D.tscn" id="15_wsu2k"]
+[ext_resource type="PackedScene" uid="uid://bsownd8njeoui" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul.tscn" id="16_k12tt"]
+[ext_resource type="PackedScene" uid="uid://diqsut1cdl703" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/bau_armazenamento.tscn" id="17_h1bgf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xj2oc"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2v4ca"]
+albedo_texture = ExtResource("1_hx564")
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4d22p"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_21n7a"]
+sky_top_color = Color(0.128715, 0.416111, 0.737104, 1)
+sky_horizon_color = Color(0.644211, 0.923765, 0.977515, 1)
+sky_cover_modulate = Color(0.723802, 0.457427, 0.249371, 1)
+
+[sub_resource type="Sky" id="Sky_sru38"]
+sky_material = SubResource("ProceduralSkyMaterial_21n7a")
+
+[sub_resource type="Environment" id="Environment_3f47f"]
+background_mode = 2
+sky = SubResource("Sky_sru38")
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6aab0"]
+size = Vector3(15, 3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmk5w"]
+albedo_texture = ExtResource("1_hx564")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_offset = Vector3(0, 0.46, 0)
+uv1_triplanar = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vc7s4"]
+data = PackedVector3Array(-7.5, 1.5, 0.15, 7.5, 1.5, 0.15, -7.5, -1.5, 0.15, 7.5, 1.5, 0.15, 7.5, -1.5, 0.15, -7.5, -1.5, 0.15, 7.5, 1.5, -0.15, -7.5, 1.5, -0.15, 7.5, -1.5, -0.15, -7.5, 1.5, -0.15, -7.5, -1.5, -0.15, 7.5, -1.5, -0.15, 7.5, 1.5, 0.15, 7.5, 1.5, -0.15, 7.5, -1.5, 0.15, 7.5, 1.5, -0.15, 7.5, -1.5, -0.15, 7.5, -1.5, 0.15, -7.5, 1.5, -0.15, -7.5, 1.5, 0.15, -7.5, -1.5, -0.15, -7.5, 1.5, 0.15, -7.5, -1.5, 0.15, -7.5, -1.5, -0.15, 7.5, 1.5, 0.15, -7.5, 1.5, 0.15, 7.5, 1.5, -0.15, -7.5, 1.5, 0.15, -7.5, 1.5, -0.15, 7.5, 1.5, -0.15, -7.5, -1.5, 0.15, 7.5, -1.5, 0.15, -7.5, -1.5, -0.15, 7.5, -1.5, 0.15, 7.5, -1.5, -0.15, -7.5, -1.5, -0.15)
+
+[node name="World" type="Node"]
+script = ExtResource("1_d1ilt")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_xj2oc")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_2v4ca")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_4d22p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.672909, 0.739725, 0, -0.739725, -0.672909, 0, 14.7711, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3f47f")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_kkqpb")]
+transform = Transform3D(-0.994452, 0, 0.105188, 0, 1, 0, -0.105188, 0, -0.994452, 0, 0.482407, 4.0223)
+
+[node name="wall" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66146, 0)
+mesh = SubResource("BoxMesh_6aab0")
+surface_material_override/0 = SubResource("StandardMaterial3D_pmk5w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66146, 0)
+shape = SubResource("ConcavePolygonShape3D_vc7s4")
+
+[node name="Trap" parent="." instance=ExtResource("3_8gbba")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.5952, 0.05, 8.55104)
+
+[node name="AreaCura" parent="." instance=ExtResource("4_jjvhh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.6611, 0.1, 2.64085)
+
+[node name="AreaBuffHP" parent="." instance=ExtResource("5_kry3j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.5199, 0.0999985, 18.6654)
+
+[node name="AreaCuraContinua" parent="." instance=ExtResource("6_21xkr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.6229, 0.0999985, -2.34492)
+
+[node name="TrapDanoContinuo" parent="." instance=ExtResource("7_6bp64")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.5618, 0.0499985, 13.8129)
+
+[node name="CausaDanoContinuo" parent="." instance=ExtResource("2_344ge")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.58639, 0.15, 18.4899)
+
+[node name="AreaCuraContinua2" parent="." instance=ExtResource("9_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74611, 0.15, 18.3064)
+
+[node name="Projetil" parent="." instance=ExtResource("10_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32028, 0.5, 18.3393)
+
+[node name="Inimigo_fraco" parent="." instance=ExtResource("12_fdnlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.515, 1, 31.6272)
+
+[node name="Inimigo_medio" parent="." instance=ExtResource("13_jkdf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.2465, 1, 71.5627)
+
+[node name="Inimigo_medio2" parent="." instance=ExtResource("14_jkdf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.233, 1, 83.2483)
+
+[node name="Maca3d" parent="." instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5677, 0.5, -3.5351)
+
+[node name="Maca3d2" parent="." instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5677, 0.5, -8.21316)
+
+[node name="Maca3d3" parent="." instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5677, 0.5, -12.7146)
+
+[node name="Maca3d4" parent="." instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5677, 0.5, -16.5596)
+
+[node name="Maca3d5" parent="." instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5677, 0.5, -19.3622)
+
+[node name="Maca3d6" parent="." instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5677, 0.5, -22.3688)
+
+[node name="Maca3d7" parent="." instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5677, 0.5, -25.5653)
+
+[node name="Livro3D" parent="." instance=ExtResource("16_k12tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3416, 0.35, -3.35262)
+
+[node name="Livro3D2" parent="." instance=ExtResource("16_k12tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3416, 0.35, -8.01966)
+
+[node name="Livro3D3" parent="." instance=ExtResource("16_k12tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3416, 0.35, -11.7916)
+
+[node name="Livro3D4" parent="." instance=ExtResource("16_k12tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3416, 0.35, -15.3323)
+
+[node name="BauArmazenamento" parent="." instance=ExtResource("17_h1bgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66553, 0.356577, -1.82182)

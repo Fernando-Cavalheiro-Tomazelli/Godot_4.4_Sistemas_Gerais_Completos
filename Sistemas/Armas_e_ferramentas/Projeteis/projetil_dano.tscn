@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://1oex1ot6dla6"]
+
+[ext_resource type="Script" uid="uid://dhrwc87nsf7px" path="res://Sistemas/Armas_e_ferramentas/Projeteis/projetil_dano.gd" id="1_hue44"]
+[ext_resource type="Resource" uid="uid://ba1b23sifdlie" path="res://Scripts/Efeitos_Status/aplicar_dano_unico_base.tres" id="2_5k4i6"]
+[ext_resource type="Texture2D" uid="uid://bc8mw2dhfdhfi" path="res://Resouces/icones/fire.png" id="2_r44wx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3onwi"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1qxg"]
+albedo_color = Color(1, 1, 0.0117647, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tj6io"]
+radius = 0.2
+
+[node name="Projetil_Dano" type="Area3D"]
+collision_layer = 4
+script = ExtResource("1_hue44")
+icone_projetil = ExtResource("2_r44wx")
+aplicar_dano = ExtResource("2_5k4i6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_3onwi")
+surface_material_override/0 = SubResource("StandardMaterial3D_e1qxg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tj6io")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

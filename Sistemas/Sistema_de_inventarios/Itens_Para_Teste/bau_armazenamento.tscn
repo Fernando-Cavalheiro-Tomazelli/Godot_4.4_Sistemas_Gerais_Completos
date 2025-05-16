@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://diqsut1cdl703"]
+
+[ext_resource type="Script" uid="uid://u047vmdwmbeu" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/bau_armazenamento.gd" id="1_4gb3k"]
+[ext_resource type="Script" uid="uid://b0kapbicmb267" path="res://Sistemas/Sistema_de_inventarios/inventario_base.gd" id="2_1vnit"]
+
+[sub_resource type="Resource" id="Resource_1vnit"]
+script = ExtResource("2_1vnit")
+tamanho_inventario = 8
+dono_do_inventario = ""
+metadata/_custom_type_script = "uid://b0kapbicmb267"
+
+[sub_resource type="BoxMesh" id="BoxMesh_svfry"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bspl5"]
+albedo_color = Color(0.244252, 0.149062, 0.0446937, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_afuti"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gb3k"]
+size = Vector3(2.5, 1.5, 1.5)
+
+[node name="BauArmazenamento" type="StaticBody3D"]
+script = ExtResource("1_4gb3k")
+inventario = SubResource("Resource_1vnit")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143423, 0)
+mesh = SubResource("BoxMesh_svfry")
+surface_material_override/0 = SubResource("StandardMaterial3D_bspl5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144211, 0)
+shape = SubResource("BoxShape3D_afuti")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165318, 0)
+shape = SubResource("BoxShape3D_4gb3k")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

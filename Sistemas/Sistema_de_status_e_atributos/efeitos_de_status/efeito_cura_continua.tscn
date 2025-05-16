@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddtd5407hublj"]
+
+[ext_resource type="Script" uid="uid://diin05c4ju65" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_cura_continua.gd" id="1_fr7s8"]
+[ext_resource type="Resource" uid="uid://d1ea3t6ufjx7r" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/cura_continua_base.tres" id="2_uwo27"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cqsat"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwo27"]
+albedo_color = Color(0.4, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yo6v"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e62uy"]
+size = Vector3(3.5, 0.3, 3.5)
+
+[node name="EfeitoCuraContinua" type="StaticBody3D"]
+script = ExtResource("1_fr7s8")
+curar = ExtResource("2_uwo27")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cqsat")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwo27")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1yo6v")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152196, 0)
+shape = SubResource("BoxShape3D_e62uy")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.472576, 0)
+billboard = 1
+text = "Efeito de Cura Continua"
+font_size = 80
+outline_size = 25
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

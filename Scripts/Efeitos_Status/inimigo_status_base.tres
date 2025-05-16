@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BaseStatus" load_steps=2 format=3 uid="uid://bec8b1x1m3gfv"]
+
+[ext_resource type="Script" uid="uid://div2ng038opl4" path="res://Sistemas/Sistema_de_status_e_atributos/base_status_data.gd" id="1_v50do"]
+
+[resource]
+script = ExtResource("1_v50do")
+nome = ""
+vida_max = 500.0
+vida_atual = 0.0
+energia_max = 0.0
+fome_max = 0.0
+sede_max = 0.0
+velocidade = 0.0
+defesa = 1000.0
+ataque_minimo = 0.0
+ataque_maximo = 0.0
+percentual_reducao_dano = 0.0
+percentual_penetracao_armadura = 0.0
+chance_critica = 0.0
+dano_critico = 0.0
+tempo_intervalo_recuperar_passiva = 1.0
+valor_recuperar_vida_passiva = 0.3
+efeitos_ativos = Array[Resource]([])
+metadata/_custom_type_script = "uid://div2ng038opl4"

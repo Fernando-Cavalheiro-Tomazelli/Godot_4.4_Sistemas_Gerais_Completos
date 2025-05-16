@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BaseStatus" load_steps=2 format=3 uid="uid://2m6cill2ui02"]
+
+[ext_resource type="Script" uid="uid://div2ng038opl4" path="res://Sistemas/Sistema_de_status_e_atributos/base_status_data.gd" id="1_vqy0j"]
+
+[resource]
+script = ExtResource("1_vqy0j")
+nome = "Fernando"
+vida_max = 150.0
+vida_atual = 100.0
+energia_max = 100.0
+energia_atual = 0.0
+fome_max = 100.0
+fome_atual = 0.0
+sede_max = 100.0
+velocidade = 100.0
+defesa = 55.0
+ataque_minimo = 500.0
+ataque_maximo = 700.0
+percentual_reducao_dano = 0.0
+percentual_penetracao_armadura = 0.0
+chance_critica = 0.2
+dano_critico = 0.0
+tempo_intervalo_recuperar_passiva = 1.0
+valor_recuperar_vida_passiva = 0.2
+valor_recuperar_energia_passiva = 1.0
+valor_diminuir_fome_passiva = 0.2
+metadata/_custom_type_script = "uid://div2ng038opl4"

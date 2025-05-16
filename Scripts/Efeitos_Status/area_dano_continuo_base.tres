@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="AreaDanoContinuoBase" load_steps=6 format=3 uid="uid://c15pav5wmdiaf"]
+
+[ext_resource type="Script" uid="uid://cclopu0kfdkb7" path="res://Sistemas/Valores_flutuantes/mostrar_dano_flutuante.gd" id="1_5rjjp"]
+[ext_resource type="Script" uid="uid://c5rfvu6ip2wcd" path="res://Scripts/Classes_Base/aplicar_dano_unico_base.gd" id="2_1jc4w"]
+[ext_resource type="Script" uid="uid://cd0simp2hve23" path="res://Scripts/Classes_Base/area_dano_continuo_base.gd" id="2_5rjjp"]
+
+[sub_resource type="Resource" id="Resource_3afi0"]
+script = ExtResource("1_5rjjp")
+cor_base = Color(1, 0.388235, 0.180392, 1)
+cor_critico = Color(1, 0, 0.411765, 1)
+cor_bordas = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cclopu0kfdkb7"
+
+[sub_resource type="Resource" id="Resource_fbih1"]
+script = ExtResource("2_1jc4w")
+chance_aplicar_efeito = 1.0
+dano_minimo = 5.0
+dano_maximo = 8.0
+chance_critica = 0.1
+dano_critico = 1.0
+mostrar_valor_flutuante = SubResource("Resource_3afi0")
+metadata/_custom_type_script = "uid://c5rfvu6ip2wcd"
+
+[resource]
+script = ExtResource("2_5rjjp")
+intervalo_por_hit = 0.5
+aplicar_dano = SubResource("Resource_fbih1")
+metadata/_custom_type_script = "uid://cd0simp2hve23"

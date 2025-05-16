@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ListaDeEstados" load_steps=4 format=3 uid="uid://dc7rcktgo6eab"]
+
+[ext_resource type="Script" uid="uid://p7frlqx0mtsa" path="res://Sistemas/Maquina_de_estados/lista_de_estados.gd" id="1_3xshc"]
+[ext_resource type="Script" uid="uid://bmfw1ob4gg4vl" path="res://Sistemas/Maquina_de_estados/estado_perseguir.gd" id="1_edray"]
+
+[sub_resource type="Resource" id="Resource_yc8mn"]
+script = ExtResource("1_edray")
+velocidade = 3.0
+metadata/_custom_type_script = "uid://bmfw1ob4gg4vl"
+
+[resource]
+script = ExtResource("1_3xshc")
+perseguindo = SubResource("Resource_yc8mn")
+metadata/_custom_type_script = "uid://p7frlqx0mtsa"
