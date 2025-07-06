@@ -1,16 +1,9 @@
-[gd_resource type="Resource" script_class="CuraContinuaBase" load_steps=7 format=3 uid="uid://d1ea3t6ufjx7r"]
+[gd_resource type="Resource" script_class="CuraContinuaBase" load_steps=6 format=3 uid="uid://d1ea3t6ufjx7r"]
 
-[ext_resource type="Script" uid="uid://cclopu0kfdkb7" path="res://Sistemas/Valores_flutuantes/mostrar_dano_flutuante.gd" id="1_7ntri"]
 [ext_resource type="Script" uid="uid://bffxepoexe47h" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_cura_continua_base.gd" id="1_njqtv"]
 [ext_resource type="Texture2D" uid="uid://bcs4j0eyxaohf" path="res://Resouces/icones/cruz-vermelha.png" id="1_pxyab"]
+[ext_resource type="Resource" uid="uid://8ppjsrwg2ws6" path="res://Scripts/Classes_Base/valor_flutuante_cura.tres" id="2_7ntri"]
 [ext_resource type="Script" uid="uid://d3je2xv7nu2sh" path="res://Scripts/Classes_Base/aplicar_cura_unica_base.gd" id="2_8jxv1"]
-
-[sub_resource type="Resource" id="Resource_itqqd"]
-script = ExtResource("1_7ntri")
-cor_base = Color(0.282096, 0.791021, 0, 1)
-cor_critico = Color(0.347063, 0.633641, 0.550285, 1)
-cor_bordas = Color(0, 0, 0, 1)
-metadata/_custom_type_script = "uid://cclopu0kfdkb7"
 
 [sub_resource type="Resource" id="Resource_8jxv1"]
 script = ExtResource("2_8jxv1")
@@ -19,7 +12,7 @@ cura_minima = 4.0
 cura_maxima = 7.0
 chance_critica = 0.5
 valor_cura_critica = 1.5
-mostrar_valor_flutuante = SubResource("Resource_itqqd")
+valor_flutuante = ExtResource("2_7ntri")
 metadata/_custom_type_script = "uid://d3je2xv7nu2sh"
 
 [resource]

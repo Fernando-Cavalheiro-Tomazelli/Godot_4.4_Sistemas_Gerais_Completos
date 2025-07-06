@@ -23,8 +23,9 @@ func criar_inventarios_visuais_externos(player, externo) -> void:
 		referencia_externo = externo
 		
 		tela_inventario = tela_inventarios_externos.instantiate()
-		var local_inventario_player = tela_inventario.find_child("Inventario_Player")
-		var local_inventario_externo = tela_inventario.find_child("Inventario_Externo")
+		var local_inventario_player = tela_inventario.find_child("Container_Player")
+		var local_inventario_externo = tela_inventario.find_child("Container_Externo")
+		tela_inventario.find_child("NomePlayerInventario").text = player.nome
 		player.add_child(tela_inventario)
 		
 		criar_inventario_player(player, local_inventario_player)

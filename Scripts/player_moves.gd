@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@export var nome : String = "CavalheiroFT"
 @export var player_status : BaseStatus
 @export var inventario : InventarioBase
 
@@ -37,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	just_jump() #Func para fazer pular.
 	apply_gravity(delta) #Func que aplica gravidade.
 	move_and_slide()
-	if Input.is_action_just_pressed("ui_cancel"): get_tree().quit() #quit game provisório trocar de lugar.
 	
 	
 func move_player_at_cursor():

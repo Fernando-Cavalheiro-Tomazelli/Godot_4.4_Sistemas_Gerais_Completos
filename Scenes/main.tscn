@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1m85c2diq11y"]
+[gd_scene load_steps=25 format=3 uid="uid://d1m85c2diq11y"]
 
 [ext_resource type="Script" uid="uid://dgxnjbp4ieojf" path="res://Scenes/main_world.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://dxyxxg3h3dx0b" path="res://Resouces/icones/icon.svg" id="1_hx564"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ckpmiucyotasq" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/Maca3D.tscn" id="15_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://bsownd8njeoui" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul.tscn" id="16_k12tt"]
 [ext_resource type="PackedScene" uid="uid://diqsut1cdl703" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/bau_armazenamento.tscn" id="17_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://cxcyr8rxnnpdt" path="res://Enviroment/Ambiente.tscn" id="18_b3802"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xj2oc"]
 size = Vector2(200, 200)
@@ -27,19 +28,6 @@ uv1_scale = Vector3(30, 30, 30)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4d22p"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_21n7a"]
-sky_top_color = Color(0.128715, 0.416111, 0.737104, 1)
-sky_horizon_color = Color(0.644211, 0.923765, 0.977515, 1)
-sky_cover_modulate = Color(0.723802, 0.457427, 0.249371, 1)
-
-[sub_resource type="Sky" id="Sky_sru38"]
-sky_material = SubResource("ProceduralSkyMaterial_21n7a")
-
-[sub_resource type="Environment" id="Environment_3f47f"]
-background_mode = 2
-sky = SubResource("Sky_sru38")
-ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6aab0"]
 size = Vector3(15, 3, 0.3)
@@ -69,9 +57,6 @@ shape = SubResource("ConcavePolygonShape3D_4d22p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.672909, 0.739725, 0, -0.739725, -0.672909, 0, 14.7711, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3f47f")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_kkqpb")]
 transform = Transform3D(-0.994452, 0, 0.105188, 0, 1, 0, -0.105188, 0, -0.994452, 0, 0.482407, 4.0223)
@@ -155,3 +140,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3416, 0.35, -15.3323)
 
 [node name="BauArmazenamento" parent="." instance=ExtResource("17_h1bgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66553, 0.356577, -1.82182)
+
+[node name="Ambiente" parent="." instance=ExtResource("18_b3802")]

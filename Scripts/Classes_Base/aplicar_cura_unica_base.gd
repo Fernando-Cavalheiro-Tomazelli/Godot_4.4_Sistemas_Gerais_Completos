@@ -8,7 +8,7 @@ class_name AplicarCuraUnicaBase
 @export var chance_critica : float = 0.5 # Chance de crítico (0.5 = 50%)
 @export var valor_cura_critica : float = 1.0 # Porcentagem adicional do crítico (1.0 = +100%)
 
-@export var mostrar_valor_flutuante : MostrarDanoFlutuante
+@export var valor_flutuante : MostrarDanoCuraFlutuante
 
 var alvo_global : Node3D = null
 
@@ -39,6 +39,6 @@ func aplicar_efeito(alvo: Node3D):
 	status.set_vida_atual(status.get_vida_atual() + cura_final)
 	print("Curou", cura_final, "de vida. Vida atual:", status.get_vida_atual())
 	#mostra o valor de dano flutuante na tela.
-	var mostrar_valor = mostrar_valor_flutuante.duplicate()
-	mostrar_valor.criar_valor_flutuante(alvo,cura_final,critou)
+	var mostrar_valor = valor_flutuante.duplicate()
+	mostrar_valor.criar_dano_cura_flutuante(alvo,cura_final,critou)
 	

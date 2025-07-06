@@ -133,7 +133,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Player_Hud/Minimapa/MarginContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(140, 140)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Camera_Minimapa" type="Camera3D" parent="Player_Hud/Minimapa/MarginContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_minimapa", "player")]
@@ -160,7 +160,7 @@ display_skill = NodePath("../Player_Hud/MarginDisplay_Skill/MarginContainer/Disp
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66884, 0)
 visible = false
 
-[node name="HudInventarios" type="Control" parent="." node_paths=PackedStringArray("hud_inventarios")]
+[node name="HudInventarios" type="Control" parent="." node_paths=PackedStringArray("hud_inventarios", "player_hud_info")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,6 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_7iv82")
 hud_inventarios = NodePath(".")
+player_hud_info = NodePath("../Player_Hud")
 
 [node name="Panel" type="MarginContainer" parent="HudInventarios"]
 layout_mode = 1
@@ -187,14 +188,11 @@ texture = SubResource("GradientTexture2D_h86aj")
 [node name="Local_Player_Inventario" type="PanelContainer" parent="HudInventarios/Panel/TextureRect"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -483.0
-offset_top = -179.0
-offset_bottom = 180.0
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.3
+anchor_right = 0.9
+anchor_bottom = 0.8
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -202,20 +200,5 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0.101961, 1, 1, 0.419608)
 
-[node name="PanelContainer" type="PanelContainer" parent="HudInventarios/Panel/TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 274.0
-offset_top = -177.0
-offset_right = 400.0
-offset_bottom = 177.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="HudInventarios/Panel/TextureRect/PanelContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0.580392)
+[connection signal="draw" from="HudInventarios" to="HudInventarios" method="_on_draw"]
+[connection signal="hidden" from="HudInventarios" to="HudInventarios" method="_on_hidden"]

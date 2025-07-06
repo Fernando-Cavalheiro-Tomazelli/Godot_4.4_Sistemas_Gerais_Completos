@@ -8,26 +8,18 @@ font_size = 20
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[node name="SlotItem" type="Control" node_paths=PackedStringArray("icone_slot", "label_quantidade", "efeito_mouse_on")]
+[node name="SlotItem" type="Control" node_paths=PackedStringArray("icone_slot", "label_quantidade", "efeito_mouse_on", "efeito_selecionado")]
 self_modulate = Color(0, 0.338085, 0.658692, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_right = 0.1
+anchor_bottom = 0.2
 focus_mode = 1
 script = ExtResource("1_7lnwl")
 icone_slot = NodePath("MarginContainer/Icone_Slot")
 label_quantidade = NodePath("MarginContainer/Quantia_Slot")
 efeito_mouse_on = NodePath("Efeito_visual_drag")
+efeito_selecionado = NodePath("Efeito_visual_selecionado")
 cor_original = Color(0, 0.598123, 0.750736, 1)
 
 [node name="CorFundoSlot" type="ColorRect" parent="."]
@@ -39,6 +31,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.12549, 0.619608, 1, 0.788235)
+
+[node name="Efeito_visual_selecionado" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Efeito_visual_drag" type="ColorRect" parent="."]
 visible = false
@@ -81,5 +82,6 @@ label_settings = SubResource("LabelSettings_41sud")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

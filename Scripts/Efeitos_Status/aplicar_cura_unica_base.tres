@@ -10,5 +10,5 @@ cura_minima = 5.0
 cura_maxima = 10.0
 chance_critica = 0.5
 valor_cura_critica = 1.0
-mostrar_valor_flutuante = ExtResource("1_g0jew")
+valor_flutuante = ExtResource("1_g0jew")
 metadata/_custom_type_script = "uid://d3je2xv7nu2sh"

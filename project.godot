@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Sistemas_Completos_Gerais"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="uid://dq4xb37bbrt5m"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://cvm8b2hcf671y"
+
+[autoload]
+
+TelaLoading="*res://Menus/Carregando/tela_loading.tscn"
+MenuInGame="*res://Menus/Menu in Game/menu_in_game.tscn"
+MenuConfigInGame="*res://Menus/Menu in Game/menu_config_in_game.tscn"
 
 [global_group]
 

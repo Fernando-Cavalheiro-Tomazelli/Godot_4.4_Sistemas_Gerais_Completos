@@ -18,7 +18,9 @@ func criar_informacao_item():
 	tela_informacao = ref_tela_informacao_item.instantiate()
 	ref_viewport.add_child(tela_informacao)
 	tela_informacao.global_position = ref_mouse_position
-	
+
+func atualizar_posicao_tela(mouse_position):
+	tela_informacao.global_position = mouse_position
 	
 func excluir_tela_informacao():
 	tela_informacao.queue_free()

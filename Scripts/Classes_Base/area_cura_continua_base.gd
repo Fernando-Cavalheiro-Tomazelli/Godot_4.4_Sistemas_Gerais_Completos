@@ -9,7 +9,7 @@ class_name AreaCuraContinuaBase
 @export var valor_cura_critica : float = 1.0 # Porcentagem adicional do crítico (1.0 = +100%)
 @export var intervalo_por_hit : float = 1.0
 
-@export var mostrar_valor_flutuante : MostrarDanoFlutuante
+@export var valor_flutuante : MostrarDanoCuraFlutuante
 
 var contador_intervalo_cura : float = 0.0
 var intervalo_dano_continuo : float = 1.0
@@ -38,8 +38,8 @@ func tick_efeito(delta):
 				alvo.player_status.vida_atual = min(alvo.player_status.vida_atual + cura_final, alvo.player_status.vida_max)
 				contador_intervalo_cura += intervalo_por_hit # ← usa o base, não um valor fixo hardcoded
 				#faz aparecer o valor flutuante no jogo.
-				var mostrar_valor = mostrar_valor_flutuante.duplicate()
-				mostrar_valor.criar_valor_flutuante(alvo,cura_final,critou)
+				var mostrar_valor = valor_flutuante.duplicate()
+				mostrar_valor.criar_dano_cura_flutuante(alvo,cura_final,critou)
 			
 func terminar_dano_continuo(alvo : Node3D):
 	alvos_na_area.erase(alvo)

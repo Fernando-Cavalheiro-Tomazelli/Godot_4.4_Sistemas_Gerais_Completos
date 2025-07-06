@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctl3k0p28tb4i"]
+
+[ext_resource type="Script" uid="uid://cypa4bca5d8t" path="res://Menus/Menu Inicial/menu_inicial_jogar.gd" id="1_vt810"]
+
+[node name="MenuInicialJogar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vt810")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.435294, 0.745098, 0.796078)
+
+[node name="MarginContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 0.15
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Novo Jogo" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NOVO JOGO
+"
+
+[node name="Carregar Jogo" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CARREGAR JOGO
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "VOLTAR"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Novo Jogo" to="." method="_on_novo_jogo_pressed"]

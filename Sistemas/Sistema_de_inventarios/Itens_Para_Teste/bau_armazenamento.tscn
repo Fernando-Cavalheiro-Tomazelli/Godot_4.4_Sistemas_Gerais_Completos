@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_1vnit"]
 script = ExtResource("2_1vnit")
-tamanho_inventario = 8
+tamanho_inventario = 12
 dono_do_inventario = ""
 metadata/_custom_type_script = "uid://b0kapbicmb267"
 

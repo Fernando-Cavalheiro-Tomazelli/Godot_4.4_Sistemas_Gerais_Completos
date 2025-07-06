@@ -8,7 +8,8 @@ class_name AplicarDanoUnicoBase
 @export var chance_critica : float = 0.1 # Chance de crítico (0.5 = 50%)
 @export var dano_critico : float = 1.0 # Porcentagem adicional do crítico (1.0 = +100%)
 
-@export var mostrar_valor_flutuante : MostrarDanoFlutuante
+@export var valor_flutuante : MostrarDanoCuraFlutuante
+
 var alvo_global : Node3D = null
 var atacante_global : Node3D = null
 var herdar_status_do_atacante : bool = false #Define se o dano vai ser herdado dos atributos do atacante, ou definidos manualmente
@@ -53,8 +54,8 @@ func aplicar_efeito(alvo: Node3D):
 	# Aplica o dano
 	status.set_vida_atual(status.get_vida_atual() - dano_final_real)
 	#mostra o valor de dano flutuante na tela.
-	var mostrar_valor = mostrar_valor_flutuante.duplicate()
-	mostrar_valor.criar_dano_flutuante(alvo,dano_final_real,critou)
+	var mostrar_valor = valor_flutuante.duplicate()
+	mostrar_valor.criar_dano_cura_flutuante(alvo,dano_final_real,critou)
 	
 
 	# Mensagens de debug

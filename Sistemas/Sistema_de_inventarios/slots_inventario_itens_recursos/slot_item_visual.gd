@@ -3,6 +3,7 @@ extends Control
 @export var icone_slot: TextureRect
 @export var label_quantidade: Label
 @export var efeito_mouse_on: ColorRect
+@export var efeito_selecionado : ColorRect
 
 @export var slot_item_visual: SlotItemBase
 @export var cor_original: Color
@@ -14,6 +15,12 @@ var tela_info_item_ativa = null # Guarda a tela de informacao visual do item do 
 
 # Índice do slot no inventário lógico
 var index_slot_visual: int
+
+func _process(delta: float) -> void:
+	if tela_info_item_ativa:
+		tela_info_item_ativa.atualizar_posicao_tela(get_viewport().get_mouse_position())
+
+
 
 func set_referencia_inventario_logico(inventario_logico):
 	ref_inventario_logico = inventario_logico
@@ -85,11 +92,15 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	efeito_mouse_on.hide()
+	#if tela_info_item_ativa:
+		#tela_info_item_ativa.excluir_tela_informacao()
+		#tela_info_item_ativa = null
 		
 
 
 func _on_focus_entered() -> void:
 	print("Está focado")
+	efeito_selecionado.show()
 	if tela_info_item_ativa == null:
 		var tela_info = CriarInformacaoVisualItem.new()
 		tela_info_item_ativa = tela_info
@@ -99,5 +110,19 @@ func _on_focus_entered() -> void:
 
 func _on_focus_exited() -> void:
 	print("Está desfocado")
-	tela_info_item_ativa.excluir_tela_informacao()
-	tela_info_item_ativa = null
+	efeito_selecionado.hide()
+	if tela_info_item_ativa:
+		tela_info_item_ativa.excluir_tela_informacao()
+		tela_info_item_ativa = null
+
+#func _unhandled_input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed(""): # Usa o ESQ para tirar o foco do slot.
+		#release_focus() # Tira o foco e envia o sinal para o on_focus_exited().
+
+
+#func _on_gui_input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#if has_focus():
+			#release_focus()
+		#else:
+			#grab_focus()

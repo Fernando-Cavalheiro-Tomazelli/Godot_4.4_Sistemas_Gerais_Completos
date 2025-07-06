@@ -1,16 +1,9 @@
-[gd_resource type="Resource" script_class="DanoContinuoBase" load_steps=7 format=3 uid="uid://c5lb8c074eeh8"]
+[gd_resource type="Resource" script_class="DanoContinuoBase" load_steps=6 format=3 uid="uid://c5lb8c074eeh8"]
 
 [ext_resource type="Script" uid="uid://c2s4mgx0rtfsw" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_dano_continuo_base.gd" id="1_4mbuf"]
 [ext_resource type="Texture2D" uid="uid://bc8mw2dhfdhfi" path="res://Resouces/icones/fire.png" id="1_i5o7y"]
-[ext_resource type="Script" uid="uid://cclopu0kfdkb7" path="res://Sistemas/Valores_flutuantes/mostrar_dano_flutuante.gd" id="1_snmrc"]
 [ext_resource type="Script" uid="uid://c5rfvu6ip2wcd" path="res://Scripts/Classes_Base/aplicar_dano_unico_base.gd" id="1_yxm7g"]
-
-[sub_resource type="Resource" id="Resource_t5joe"]
-script = ExtResource("1_snmrc")
-cor_base = Color(0.768627, 0.298039, 0.0313726, 1)
-cor_critico = Color(0.686275, 0.101961, 0, 1)
-cor_bordas = Color(0, 0, 0, 1)
-metadata/_custom_type_script = "uid://cclopu0kfdkb7"
+[ext_resource type="Resource" uid="uid://d33fk4y2olshh" path="res://Scripts/Classes_Base/valor_flutuante_dano.tres" id="2_snmrc"]
 
 [sub_resource type="Resource" id="Resource_7t7lf"]
 script = ExtResource("1_yxm7g")
@@ -19,7 +12,7 @@ dano_minimo = 5.0
 dano_maximo = 12.0
 chance_critica = 0.3
 dano_critico = 1.5
-mostrar_valor_flutuante = SubResource("Resource_t5joe")
+valor_flutuante = ExtResource("2_snmrc")
 metadata/_custom_type_script = "uid://c5rfvu6ip2wcd"
 
 [resource]

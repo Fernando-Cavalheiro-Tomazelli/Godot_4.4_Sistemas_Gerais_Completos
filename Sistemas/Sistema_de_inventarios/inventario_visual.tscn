@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqafoygyj302h"]
+[gd_scene load_steps=3 format=3 uid="uid://dqafoygyj302h"]
+
+[ext_resource type="PackedScene" uid="uid://ds2d5358rsa64" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item_visual.tscn" id="1_x2bjc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x2bjc"]
 font_size = 61
@@ -21,6 +23,27 @@ theme_override_constants/margin_bottom = 5
 [node name="Grade_de_itens" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
 columns = 8
+
+[node name="SlotItem" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+layout_mode = 2
+
+[node name="SlotItem2" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+layout_mode = 2
+
+[node name="SlotItem3" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+layout_mode = 2
+
+[node name="SlotItem4" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+layout_mode = 2
+
+[node name="SlotItem5" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+layout_mode = 2
+
+[node name="SlotItem6" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+layout_mode = 2
+
+[node name="SlotItem7" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="."]
 visible = false

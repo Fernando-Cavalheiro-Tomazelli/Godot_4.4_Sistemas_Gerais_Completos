@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MostrarValorFlutuante" load_steps=2 format=3 uid="uid://8ppjsrwg2ws6"]
 
-[ext_resource type="Script" uid="uid://cclopu0kfdkb7" path="res://Sistemas/Valores_flutuantes/mostrar_dano_flutuante.gd" id="1_152oy"]
+[ext_resource type="Script" uid="uid://cclopu0kfdkb7" path="res://Sistemas/Valores_flutuantes/mostrar_dano_cura_flutuante.gd" id="1_152oy"]
 
 [resource]
 script = ExtResource("1_152oy")

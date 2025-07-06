@@ -1,6 +1,7 @@
 extends Control
 
-@export var hud_inventarios : Control
+@export var hud_inventarios : Control #Menu de inventários
+@export var player_hud_info : Control #Hud de info, barra vida etc.
 
 var player = null
 
@@ -10,7 +11,12 @@ func _ready() -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventario"):
-		hud_inventarios.visible = not hud_inventarios.visible
+		hud_inventarios.visible = !hud_inventarios.visible
+	
+			
+		#player_hud_info.visible = not player_hud_info.visible
+	if Input.is_action_just_pressed("ui_cancel") and hud_inventarios.visible == true:
+		hud_inventarios.visible = false
 		
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	# Permite soltar apenas outro slot com item
@@ -31,3 +37,11 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	#Excluir maçã do inventário
 	player.inventario.remover_item_inventario(data.get_slot_data())
 	
+
+
+func _on_draw() -> void:
+	player_hud_info.visible = false
+
+
+func _on_hidden() -> void:
+	player_hud_info.visible = true
