@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://d1m85c2diq11y"]
+[gd_scene load_steps=24 format=3 uid="uid://d1m85c2diq11y"]
 
 [ext_resource type="Script" uid="uid://dgxnjbp4ieojf" path="res://Scenes/main_world.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://dxyxxg3h3dx0b" path="res://Resouces/icones/icon.svg" id="1_hx564"]
 [ext_resource type="PackedScene" uid="uid://cj747uvjc5tqh" path="res://Scenes/Cenas_Para_Testes/area_dano_continuo.tscn" id="2_344ge"]
-[ext_resource type="PackedScene" uid="uid://tpfq6twq071" path="res://Scenes/Player3D.tscn" id="2_kkqpb"]
 [ext_resource type="PackedScene" uid="uid://byijw716i0ths" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_dano_continuo.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://ddb7alpyk33mp" path="res://Scenes/Cenas_Para_Testes/area_cura_unica.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bw0lin78g1oeu" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_buff_aumento_vida.tscn" id="5_kry3j"]
@@ -57,9 +56,6 @@ shape = SubResource("ConcavePolygonShape3D_4d22p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.672909, 0.739725, 0, -0.739725, -0.672909, 0, 14.7711, 0)
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_kkqpb")]
-transform = Transform3D(-0.994452, 0, 0.105188, 0, 1, 0, -0.105188, 0, -0.994452, 0, 0.482407, 4.0223)
 
 [node name="wall" type="StaticBody3D" parent="."]
 

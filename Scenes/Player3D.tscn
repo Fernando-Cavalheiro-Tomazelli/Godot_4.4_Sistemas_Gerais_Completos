@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://tpfq6twq071"]
+[gd_scene load_steps=22 format=3 uid="uid://tpfq6twq071"]
 
 [ext_resource type="Script" uid="uid://dlrqfcg08yqvo" path="res://Scripts/player_moves.gd" id="1_4exyh"]
 [ext_resource type="Script" uid="uid://c8r61ngv53j4" path="res://Scripts/camera_3d.gd" id="1_07bfi"]
@@ -38,6 +38,8 @@ colors = PackedColorArray(0, 0, 0, 0.380392, 0, 0, 0, 0.121569)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h86aj"]
 gradient = SubResource("Gradient_qxdyp")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rv440"]
+
 [node name="Player3D" type="CharacterBody3D" node_paths=PackedStringArray("hud_inventarios", "local_inventario_player") groups=["Jogadores"]]
 script = ExtResource("1_4exyh")
 player_status = ExtResource("2_ykoex")
@@ -63,7 +65,7 @@ spring_length = 40.0
 
 [node name="PlayerCamera" type="Camera3D" parent="Player_Camera_Pivot/PlayerSpringArm"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="ColisaoDoPlayer" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702196, 0)
 shape = SubResource("CapsuleShape3D_3plgq")
 
@@ -199,6 +201,13 @@ grow_vertical = 2
 [node name="ColorRect" type="ColorRect" parent="HudInventarios/Panel/TextureRect/Local_Player_Inventario"]
 layout_mode = 2
 color = Color(0.101961, 1, 1, 0.419608)
+
+[node name="AreaDeInteracao" type="Area3D" parent="."]
+
+[node name="ColisaoAreaInteracao" type="CollisionShape3D" parent="AreaDeInteracao"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633968, 0)
+shape = SubResource("CapsuleShape3D_rv440")
+debug_color = Color(1, 0, 0.0784314, 1)
 
 [connection signal="draw" from="HudInventarios" to="HudInventarios" method="_on_draw"]
 [connection signal="hidden" from="HudInventarios" to="HudInventarios" method="_on_hidden"]

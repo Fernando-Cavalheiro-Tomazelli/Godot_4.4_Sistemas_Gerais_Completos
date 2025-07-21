@@ -9,12 +9,12 @@ signal barra_de_vida_alterada(atual : float, maxima : float) # Emite quando a vi
 
 @export_multiline var nome : String # Nome do player ou inimigo.
 
-@export var vida_max : float
-@export var vida_atual: float
-@export var energia_max : float
-@export var energia_atual : float
-@export var fome_max : float
-@export var fome_atual : float
+@export var vida_max : float : set = set_vida_max, get = get_vida_max
+@export var vida_atual: float : set = set_vida_atual, get = get_vida_atual
+@export var energia_max : float : set = set_energia_max, get = get_energia_max
+@export var energia_atual : float : set = set_energia_atual, get = get_energia_atual
+@export var fome_max : float : set = set_fome_max, get = get_fome_max
+@export var fome_atual : float : set = set_fome_atual, get = get_fome_atual
 @export var sede_max : float
 @export var velocidade : float
 @export var defesa : float
@@ -49,9 +49,9 @@ func get_vida_atual() -> float:
 	
 func set_vida_atual(valor : float) -> void:
 	valor = clamp(valor, 0.0, vida_max) # Limita o valor entre esses intervalos.
-	if valor != get_vida_atual(): # Verifica se o valor for alterado, evita atualizar sem precisar.
+	if valor != vida_atual: # Verifica se o valor for alterado, evita atualizar sem precisar.
 		vida_atual = valor
-		emit_signal("barra_de_vida_alterada", get_vida_atual(), get_vida_max())
+		emit_signal("barra_de_vida_alterada", vida_atual, vida_max)
 		if vida_atual <= 0.0:
 			emit_signal("alvo_morreu")
 			

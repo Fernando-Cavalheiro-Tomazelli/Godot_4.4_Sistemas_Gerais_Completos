@@ -3,7 +3,7 @@ class_name InventarioBase
 
 @export var tamanho_inventario : int = 8
 @export var dono_do_inventario : String = ""
-var inventario_logico : Array[SlotItemBase]
+var inventario_logico : Array[SlotItemBase] #inventário real, uma array com os itens.
 
 var inventario_visual : CriarInventarioVisual = null #Usado para criar o inventario próprio do player
 var inventario_visual_externo: CriarInventarioVisual = null #Referencia usada para atualizar o inv externo.
@@ -133,22 +133,3 @@ func trocar_ou_mover_itens_entre_inventarios(index_origem: int, inventario_desti
 	
 	
 	
-	#------------código--funcionando----------------------------
-	#var slot_origem = inventario_logico[index_origem]
-	#var slot_destino = inventario_destino.inventario_logico[index_destino]
-#
-	#var item_origem = slot_origem.item_atual_do_slot
-	#var item_destino = slot_destino.item_atual_do_slot
-#
-	## Troca os itens
-	#slot_origem.item_atual_do_slot = item_destino
-	#slot_destino.item_atual_do_slot = item_origem
-	#print("Trocando ou movento itens de inventários diferentes")
-#
-	## Atualiza os visuais de ambos os inventários
-	#if inventario_visual:
-		#print("Atualizando slots após mover itens entre inventários")
-		#inventario_visual.atualizar_slots_visuais(inventario_logico)
-	#if inventario_visual_externo:
-		#inventario_visual_externo.atualizar_slots_visuais(inventario_logico)
-	#

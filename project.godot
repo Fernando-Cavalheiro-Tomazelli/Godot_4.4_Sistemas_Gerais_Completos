@@ -17,9 +17,10 @@ config/icon="uid://cvm8b2hcf671y"
 
 [autoload]
 
-TelaLoading="*res://Menus/Carregando/tela_loading.tscn"
 MenuInGame="*res://Menus/Menu in Game/menu_in_game.tscn"
 MenuConfigInGame="*res://Menus/Menu in Game/menu_config_in_game.tscn"
+MultiplayerServerConfig="*res://MultiplayerManager/Host_Servidor/multiplayer_server_config.gd"
+MultiplayerClientConfig="*res://MultiplayerManager/Cliente/multiplayer_client_config.gd"
 
 [global_group]
 

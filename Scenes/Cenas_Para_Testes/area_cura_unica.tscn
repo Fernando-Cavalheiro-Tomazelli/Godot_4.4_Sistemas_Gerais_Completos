@@ -39,4 +39,5 @@ text = "Cura Direta"
 font_size = 80
 outline_size = 25
 
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

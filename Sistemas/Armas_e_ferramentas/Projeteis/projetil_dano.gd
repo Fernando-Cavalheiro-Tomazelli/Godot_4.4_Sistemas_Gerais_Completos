@@ -3,7 +3,7 @@ extends Area3D
 @export var nome_projetil : String = "Projétil de Dano"
 @export var icone_projetil : Texture2D
 
-@export var velocidade: float = 10.0
+@export var velocidade: float = 20.0
 @export var distancia_maxima: float = 20.0
 
 var atacante :Node3D = null

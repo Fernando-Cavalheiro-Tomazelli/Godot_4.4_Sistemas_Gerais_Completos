@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://r7apnci5dk7c"]
+
+[ext_resource type="Script" uid="uid://cf70p8l61yw31" path="res://Gerenciador de Jogo/gerenciador_de_jogo.gd" id="1_gso3h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_do5lt"]
+font_size = 40
+
+[node name="GerenciadorDeJogo" type="Node" node_paths=PackedStringArray("tela_loading", "local_instanciar_jogador")]
+script = ExtResource("1_gso3h")
+tela_loading = NodePath("TelaLoading")
+local_instanciar_jogador = NodePath("Players")
+
+[node name="TelaLoading" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="TelaLoading"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164185, 0.149664, 0.164184, 1)
+
+[node name="Label" type="Label" parent="TelaLoading"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "CARREGANDO..."
+label_settings = SubResource("LabelSettings_do5lt")
+
+[node name="Mapas" type="Node" parent="."]
+
+[node name="Instancias" type="Node" parent="."]
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Objetos Interativos" type="Node" parent="."]
+
+[node name="Node5" type="Node" parent="."]
+
+[node name="Node6" type="Node" parent="."]
+
+[node name="Node7" type="Node" parent="."]
+
+[node name="Node8" type="Node" parent="."]

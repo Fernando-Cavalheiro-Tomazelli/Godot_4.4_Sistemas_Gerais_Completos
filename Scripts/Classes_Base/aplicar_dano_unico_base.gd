@@ -15,20 +15,16 @@ var atacante_global : Node3D = null
 var herdar_status_do_atacante : bool = false #Define se o dano vai ser herdado dos atributos do atacante, ou definidos manualmente
 
 func aplicar_efeito(alvo: Node3D):
-	if not "player_status" in alvo:
+	if not "player_status" in alvo and not "vida_atual" in alvo.player_status:
 		print("Alvo não possui status_base")
-		return
-
-	alvo_global = alvo
-	
-	if not "vida_atual" in alvo_global.player_status:
-		print("Alvo não possui atributo de vida")
 		return
 
 	# Verifica chance de aplicar o efeito
 	if randf() > chance_aplicar_efeito:
 		print("O efeito de dano FALHOU. Chance não satisfeita.")
 		return
+		
+	alvo_global = alvo	
 		
 	definir_status_atacante()
 
