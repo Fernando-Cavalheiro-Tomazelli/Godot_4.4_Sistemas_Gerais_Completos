@@ -44,6 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	change_camera_zoom(event)
 
 #Codigos da camera
+#Apontar o player para direção do cursor.
 func move_player_at_cursor():
 	var space_state = get_world_3d().direct_space_state
 	var mouse_position = get_viewport().get_mouse_position() #Pegar posição do mouse na tela "viewport".
