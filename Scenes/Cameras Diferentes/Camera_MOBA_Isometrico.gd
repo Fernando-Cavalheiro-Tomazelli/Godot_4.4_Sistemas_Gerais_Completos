@@ -2,7 +2,7 @@ extends Node3D #Nó onde o script atual foi herdado
 
 #Exportar grupro faz as variáveis abaixo aparecerem dentro do grupo indicado "indicado".
 @export_group("Properties") 
-@export var target : CharacterBody3D
+var target : CharacterBody3D
 
 #Exportar grupro faz as variáveis abaixo aparecerem dentro do grupo indicado "indicado".
 @export_group("Zoom") 
@@ -15,8 +15,8 @@ extends Node3D #Nó onde o script atual foi herdado
 @export var max_pitch = -40.0 #Ângulo máximo de rotação horizontal da câmera.
 
 #Ativas quando o nó estiver totalmente pronto, pode ser colocado dentro da func _ready().
-@onready var spring_arm: SpringArm3D = $PlayerSpringArm #Especifica o nó do braço da câmera.
-@onready var camera: Camera3D = $PlayerSpringArm/PlayerCamera #Especifica o nó da câmera em sí.
+@export var spring_arm: SpringArm3D #Especifica o nó do braço da câmera.
+@export var camera: Camera3D #Especifica o nó da câmera em sí.
 
 var _yaw = 0.0
 var _pitch = 0.0
@@ -28,6 +28,9 @@ var last_mouse_position := Vector2.ZERO  # Armazena a última posição do mouse
 
 func _ready() -> void:
 	spring_arm.spring_length = _target_zoom #zoom inicial da camera.
+	if self.get_parent() is CharacterBody3D:
+		target = self.get_parent()
+	self.get_parent().camera_pivot = self
 
 func _process(_delta: float) -> void:
 	soft_camera_movement()
@@ -39,8 +42,21 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	change_camera_movement(event)	
 	change_camera_zoom(event)
-	
-	
+
+#Codigos da camera
+func move_player_at_cursor():
+	var space_state = get_world_3d().direct_space_state
+	var mouse_position = get_viewport().get_mouse_position() #Pegar posição do mouse na tela "viewport".
+	var ray_origin = camera.project_ray_origin(mouse_position) #Criar um novo raio "RayTrace" na posição indicada.
+	var ray_end = ray_origin + camera.project_ray_normal(mouse_position) * 300 #Faz o raio ser projetado até a posição final desejada.
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end) #Cria um objeto "query" com posição inicial e final do Ray.
+	var intersection = space_state.intersect_ray(query)
+	# Se colidir com algo, move o personagem
+	if intersection:
+		var pos_look_at = intersection.position #Posição onde o Ray colidiu no mundo 3D a partir do cursor.
+		self.get_parent().look_at(Vector3(pos_look_at.x, global_position.y, pos_look_at.z), Vector3(0, 1, 0)) #Função Look_at faz olhar na direção do vecto3 indicado.
+		# Corrige a rotação girando 180 graus no eixo Y caso persoangem esteja olhando para o lado contrário do cursor.
+		self.get_parent().rotate_y(deg_to_rad(180))
 
 func change_camera_movement(evento: InputEvent) -> void:
 	if evento is InputEventMouseButton:

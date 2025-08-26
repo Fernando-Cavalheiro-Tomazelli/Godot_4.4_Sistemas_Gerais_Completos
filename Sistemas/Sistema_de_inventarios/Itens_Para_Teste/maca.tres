@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://8833uuj11kf2"]
+[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://dnaux5elv6xig"]
 
 [ext_resource type="Script" uid="uid://bwxgvo4ot73ij" path="res://Sistemas/Sistema_de_inventarios/item_base.gd" id="1_83yx8"]
 [ext_resource type="Texture2D" uid="uid://c4qa5o2pdgdl7" path="res://Resouces/icones/maca.png" id="1_e5fx1"]
 
 [resource]
 script = ExtResource("1_83yx8")
-nome = "Macã"
-descricao = "Uma maçã vermelha e saborosa."
-icone = ExtResource("1_e5fx1")
+item_id = "apple_red"
+nome_item = "Maça Vermelha"
+descricao_item = "Um maça vermelha suculenta."
+icone_item = ExtResource("1_e5fx1")
 estacavel = true
-quantidade_da_pilha = 15
-caminho_cena_item_3d = "res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/Maca3D.tscn"
+maximo_por_pilha = 2
+caminho_cena_item_3d = ""
 metadata/_custom_type_script = "uid://bwxgvo4ot73ij"

@@ -1,7 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckpmiucyotasq"]
+[gd_scene load_steps=12 format=3 uid="uid://ckpmiucyotasq"]
 
 [ext_resource type="Script" uid="uid://bgua6uh8s6qy0" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca_3d.gd" id="1_un00x"]
-[ext_resource type="Resource" uid="uid://8833uuj11kf2" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca.tres" id="2_u0wbd"]
+[ext_resource type="Script" uid="uid://bfeiphq2lyelj" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/coletavel-inventario.gd" id="2_u0wbd"]
+[ext_resource type="Resource" uid="uid://dnaux5elv6xig" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca.tres" id="3_1xbch"]
+[ext_resource type="Script" uid="uid://b6wcf33erjwqv" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item.gd" id="4_h66pq"]
+
+[sub_resource type="Resource" id="Resource_maixe"]
+script = ExtResource("4_h66pq")
+item_atual_do_slot = ExtResource("3_1xbch")
+quantidade_atual_no_slot = 3
+metadata/_custom_type_script = "uid://b6wcf33erjwqv"
 
 [sub_resource type="SphereMesh" id="SphereMesh_y68ag"]
 
@@ -21,9 +29,14 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_u0wbd"]
 radius = 0.911
 
-[node name="Maca3d" type="StaticBody3D"]
+[node name="Maca3d" type="StaticBody3D" node_paths=PackedStringArray("item_coletavel")]
 script = ExtResource("1_un00x")
-item = ExtResource("2_u0wbd")
+item_coletavel = NodePath("ColetavelInventario")
+
+[node name="ColetavelInventario" type="Node" parent="."]
+script = ExtResource("2_u0wbd")
+item_slot = SubResource("Resource_maixe")
+metadata/_custom_type_script = "uid://bfeiphq2lyelj"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_y68ag")
@@ -42,4 +55,4 @@ shape = SubResource("SphereShape3D_1xbch")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_u0wbd")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

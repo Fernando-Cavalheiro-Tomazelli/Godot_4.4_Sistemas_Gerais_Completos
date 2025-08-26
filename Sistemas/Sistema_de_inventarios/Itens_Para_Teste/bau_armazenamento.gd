@@ -1,14 +1,13 @@
 extends StaticBody3D
 
 @export var nome = "Baú de Armazenamento"
-@export var inventario : InventarioBase
+#@export var inventario : InventarioBase
 var inventario_externo :  CriarInventarioVisualExterno = null
 var ref_player = null
 
 
 func _ready() -> void:
-	inventario.dono_do_inventario = str(self.name)
-	inventario.iniciar_inventario()
+	pass
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

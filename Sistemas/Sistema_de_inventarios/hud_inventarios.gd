@@ -6,8 +6,17 @@ extends Control
 var player = null
 
 func _ready() -> void:
+	
 	hud_inventarios.visible = false
 	player = self.get_parent()
+	
+	if self.get_parent().find_child("InventarioBase"):
+		var inventario_visual = CriarSlotsVisuaisInventario.new()
+		var inventario_logico = self.get_parent().find_child("InventarioBase").inventario_logico
+		var local_inventario = self.find_child("LocalInventarioPlayer")
+		
+		inventario_visual.iniciar_inventario_visual_(inventario_logico, local_inventario)
+	
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventario"):

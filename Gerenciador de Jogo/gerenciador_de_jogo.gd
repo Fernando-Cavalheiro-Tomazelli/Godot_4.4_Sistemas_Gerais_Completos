@@ -1,7 +1,7 @@
 extends Node
 
 #Depois adicionar um recurso com lista de todos mapas!!!
-var mapa_inicial = preload("res://Scenes/main.tscn")
+var mapa_inicial = preload("res://Lobby Principal Inicial/lobby_principal_inicial.tscn")
 var personagem = preload("res://Scenes/Player3D.tscn")
 
 @export var tela_loading : Control
