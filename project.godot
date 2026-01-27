@@ -12,15 +12,14 @@ config_version=5
 
 config/name="Sistemas_Completos_Gerais"
 run/main_scene="uid://dq4xb37bbrt5m"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://cvm8b2hcf671y"
 
 [autoload]
 
-MenuInGame="*res://Menus/Menu in Game/menu_in_game.tscn"
-MenuConfigInGame="*res://Menus/Menu in Game/menu_config_in_game.tscn"
 MultiplayerServerConfig="*res://MultiplayerManager/Host_Servidor/multiplayer_server_config.gd"
 MultiplayerClientConfig="*res://MultiplayerManager/Cliente/multiplayer_client_config.gd"
+GameManager="*res://Gerenciador de Jogo/GameManager.gd"
 
 [display]
 
@@ -88,3 +87,8 @@ interagir={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="MapaEstruturas"
+3d_physics/layer_2="RecebeDanoCura"

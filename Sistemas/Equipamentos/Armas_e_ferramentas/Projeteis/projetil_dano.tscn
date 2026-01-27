@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://1oex1ot6dla6"]
+
+[ext_resource type="Script" uid="uid://dhrwc87nsf7px" path="res://Sistemas/Equipamentos/Armas_e_ferramentas/Projeteis/projetil_dano.gd" id="1_hue44"]
+[ext_resource type="Resource" uid="uid://ba1b23sifdlie" path="res://Sistemas/Danos_e_Curas/efeitos_prontos/aplicar_dano_unico_base.tres" id="2_5k4i6"]
+[ext_resource type="Texture2D" uid="uid://bc8mw2dhfdhfi" path="res://Resouces/icones/fire.png" id="2_r44wx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6kfax"]
+size = Vector3(0.1, 0.1, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1qxg"]
+albedo_color = Color(1, 1, 0.0117647, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_42207"]
+size = Vector3(0.2, 0.1, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tj6io"]
+radius = 0.2
+
+[node name="Projetil_Dano" type="Area3D"]
+collision_layer = 4
+script = ExtResource("1_hue44")
+icone_projetil = ExtResource("2_r44wx")
+aplicar_dano = ExtResource("2_5k4i6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6kfax")
+surface_material_override/0 = SubResource("StandardMaterial3D_e1qxg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.199594)
+mesh = SubResource("PrismMesh_42207")
+surface_material_override/0 = SubResource("StandardMaterial3D_e1qxg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tj6io")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

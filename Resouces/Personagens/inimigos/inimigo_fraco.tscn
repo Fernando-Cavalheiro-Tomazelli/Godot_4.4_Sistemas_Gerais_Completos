@@ -1,44 +1,32 @@
-[gd_scene load_steps=15 format=3 uid="uid://clsw8jsd4bcxk"]
+[gd_scene load_steps=17 format=3 uid="uid://clsw8jsd4bcxk"]
 
 [ext_resource type="Script" uid="uid://88ywckqftclr" path="res://Resouces/Personagens/inimigos/inimigo_fraco.gd" id="1_syo5h"]
 [ext_resource type="Script" uid="uid://div2ng038opl4" path="res://Sistemas/Sistema_de_status_e_atributos/base_status_data.gd" id="2_8p8dk"]
-[ext_resource type="PackedScene" uid="uid://ce5npyafysa0b" path="res://Sistemas/Barra_Vida_Flutuante/barra_vida_flutuante.tscn" id="3_8p8dk"]
+[ext_resource type="PackedScene" uid="uid://ce5npyafysa0b" path="res://Sistemas/Status_HUD/Barra_Vida_Flutuante/barra_vida_flutuante.tscn" id="3_8p8dk"]
 [ext_resource type="Script" uid="uid://bmfw1ob4gg4vl" path="res://Sistemas/Maquina_de_estados/estado_perseguir.gd" id="3_cjxjf"]
 [ext_resource type="Script" uid="uid://p7frlqx0mtsa" path="res://Sistemas/Maquina_de_estados/lista_de_estados.gd" id="4_shhek"]
+[ext_resource type="Script" uid="uid://rgkiaa55gcpb" path="res://Scripts/componentmanager.gd" id="5_shhek"]
 
 [sub_resource type="Resource" id="Resource_tmb07"]
 script = ExtResource("2_8p8dk")
-nome = ""
 vida_max = 200.0
-vida_atual = 0.0
-energia_max = 0.0
-energia_atual = 0.0
-fome_max = 0.0
-fome_atual = 0.0
-sede_max = 0.0
-velocidade = 0.0
 defesa = 20.0
-ataque_minimo = 0.0
-ataque_maximo = 0.0
-percentual_reducao_dano = 0.0
-percentual_penetracao_armadura = 0.0
-chance_critica = 0.0
-dano_critico = 0.0
-tempo_intervalo_recuperar_passiva = 1.0
-valor_recuperar_vida_passiva = 1.0
-valor_recuperar_energia_passiva = 1.0
-valor_diminuir_fome_passiva = 1.0
 metadata/_custom_type_script = "uid://div2ng038opl4"
 
 [sub_resource type="Resource" id="Resource_5marr"]
 script = ExtResource("3_cjxjf")
-velocidade = 3.0
 metadata/_custom_type_script = "uid://bmfw1ob4gg4vl"
 
 [sub_resource type="Resource" id="Resource_5fpf5"]
 script = ExtResource("4_shhek")
 perseguindo = SubResource("Resource_5marr")
 metadata/_custom_type_script = "uid://p7frlqx0mtsa"
+
+[sub_resource type="Resource" id="Resource_vwpu7"]
+script = ExtResource("2_8p8dk")
+vida_max = 500.0
+vida_atual = 400.0
+metadata/_custom_type_script = "uid://div2ng038opl4"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1vr66"]
 
@@ -61,6 +49,11 @@ script = ExtResource("1_syo5h")
 player_status = SubResource("Resource_tmb07")
 Estado = SubResource("Resource_5fpf5")
 raycast = NodePath("RayCast3D")
+
+[node name="ComponentManager" type="Node" parent="."]
+script = ExtResource("5_shhek")
+Status = SubResource("Resource_vwpu7")
+metadata/_custom_type_script = "uid://rgkiaa55gcpb"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_1vr66")

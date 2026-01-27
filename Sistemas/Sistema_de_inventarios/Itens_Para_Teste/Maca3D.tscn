@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckpmiucyotasq"]
+[gd_scene load_steps=8 format=3 uid="uid://7gtmeub0tay4"]
 
 [ext_resource type="Script" uid="uid://bgua6uh8s6qy0" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca_3d.gd" id="1_un00x"]
 [ext_resource type="Script" uid="uid://bfeiphq2lyelj" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/coletavel-inventario.gd" id="2_u0wbd"]
@@ -10,19 +10,6 @@ script = ExtResource("4_h66pq")
 item_atual_do_slot = ExtResource("3_1xbch")
 quantidade_atual_no_slot = 3
 metadata/_custom_type_script = "uid://b6wcf33erjwqv"
-
-[sub_resource type="SphereMesh" id="SphereMesh_y68ag"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un00x"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_u0wbd"]
-top_radius = 0.025
-bottom_radius = 0.005
-height = 0.44
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34oxl"]
-albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1xbch"]
 
@@ -38,19 +25,12 @@ script = ExtResource("2_u0wbd")
 item_slot = SubResource("Resource_maixe")
 metadata/_custom_type_script = "uid://bfeiphq2lyelj"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_y68ag")
-surface_material_override/0 = SubResource("StandardMaterial3D_un00x")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(0.848335, 0.52946, 0, -0.52946, 0.848335, 0, 0, 0, 1, 0.109066, 0.605554, 0)
-mesh = SubResource("CylinderMesh_u0wbd")
-surface_material_override/0 = SubResource("StandardMaterial3D_34oxl")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_1xbch")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_u0wbd")

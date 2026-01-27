@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://jcsw55y1u0at"]
+
+[ext_resource type="Script" uid="uid://c8r61ngv53j4" path="res://Sistemas/Cameras/Camera_MOBA_Isometrico.gd" id="1_m6yda"]
+
+[node name="Camera_MOBA_Isometrico" type="Node3D" node_paths=PackedStringArray("spring_arm", "camera")]
+script = ExtResource("1_m6yda")
+spring_arm = NodePath("PlayerSpringArm")
+camera = NodePath("PlayerSpringArm/PlayerCamera")
+
+[node name="PlayerSpringArm" type="SpringArm3D" parent="."]
+spring_length = 40.0
+
+[node name="PlayerCamera" type="Camera3D" parent="PlayerSpringArm"]

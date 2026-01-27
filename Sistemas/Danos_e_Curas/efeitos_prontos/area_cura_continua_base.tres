@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AreaCuraContinuaBase" load_steps=3 format=3 uid="uid://c2qtr1yby5aeg"]
+
+[ext_resource type="Resource" uid="uid://8ppjsrwg2ws6" path="res://Sistemas/Valores_flutuantes/valor_flutuante_cura.tres" id="1_8qok1"]
+[ext_resource type="Script" uid="uid://2dw2ns4v7q83" path="res://Sistemas/Danos_e_Curas/Efeitos_Base/area_cura_continua_base.gd" id="1_g45hv"]
+
+[resource]
+script = ExtResource("1_g45hv")
+valor_cura_minima = 3.0
+valor_cura_maxima = 5.0
+chance_critica = 0.5
+valor_cura_critica = 1.0
+intervalo_por_hit = 1.0
+valor_flutuante = ExtResource("1_8qok1")
+metadata/_custom_type_script = "uid://2dw2ns4v7q83"

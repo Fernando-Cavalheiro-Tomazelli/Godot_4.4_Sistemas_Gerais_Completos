@@ -4,7 +4,7 @@ extends Control
 var player_morreu : bool = false
 @export var life_bar: ProgressBar
 @export var display_valor_vida : Label
-const slot_efeito_scene = preload("res://Scenes/efect_slot.tscn")
+const slot_efeito_scene = preload("res://Sistemas/Status_HUD/efect_slot.tscn")
 @export var display_effects: PanelContainer
 
 var cronometro_forcar_sincronizacao : float = 0.0

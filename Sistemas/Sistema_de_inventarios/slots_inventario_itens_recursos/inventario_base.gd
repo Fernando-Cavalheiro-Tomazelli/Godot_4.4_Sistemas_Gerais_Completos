@@ -1,14 +1,10 @@
-extends Node
+extends Resource
 class_name InventarioBase
 
 @export var tamanho_inventario = 8
 @export var dono_do_inventario = "Desconhecido"
 
 var inventario_logico : Array[SlotItemBase]
-
-
-func _ready() -> void:
-	iniciar_inventario()
 
 func iniciar_inventario():
 	if tamanho_inventario > 0:
@@ -30,7 +26,7 @@ func expandir_inventario(quantidade : int) -> void:
 		var slot_item = SlotItemBase.new()
 		slot_item.index_do_slot = i
 		inventario_logico[i] = slot_item
-	self.find_parent("Player3D").find_child("InventarioVisual").iniciar_inventario_visual(inventario_logico)
+	#self.find_parent("Player3D").find_child("InventarioVisual").iniciar_inventario_visual(inventario_logico)
 		
 func adicionar_item_ao_inventario(item_recebido: ItemBase, quantidade: int) -> bool:
 	if inventario_logico == null or inventario_logico.size() <= 0:

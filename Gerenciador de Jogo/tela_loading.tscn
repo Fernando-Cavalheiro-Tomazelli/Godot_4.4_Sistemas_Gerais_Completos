@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://nx8amfepn64m"]
+
+[sub_resource type="Gradient" id="Gradient_48xl4"]
+interpolation_mode = 2
+colors = PackedColorArray(0.22639632, 0.45144212, 1, 1, 0.12156863, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rsc3h"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cvalv"]
+noise = SubResource("FastNoiseLite_rsc3h")
+color_ramp = SubResource("Gradient_48xl4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_e5rir"]
+font_size = 40
+font_color = Color(0.047058824, 0.105882354, 0.9490196, 1)
+outline_size = 10
+outline_color = Color(1, 1, 0, 1)
+
+[node name="TelaLoading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_cvalv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "CARREGANDO"
+label_settings = SubResource("LabelSettings_e5rir")

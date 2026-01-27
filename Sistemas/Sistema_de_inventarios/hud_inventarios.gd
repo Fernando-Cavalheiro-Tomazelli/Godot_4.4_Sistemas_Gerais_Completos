@@ -10,9 +10,9 @@ func _ready() -> void:
 	hud_inventarios.visible = false
 	player = self.get_parent()
 	
-	if self.get_parent().find_child("InventarioBase"):
+	if self.get_parent().find_child("ComponentManager").Inventario:
 		var inventario_visual = CriarSlotsVisuaisInventario.new()
-		var inventario_logico = self.get_parent().find_child("InventarioBase").inventario_logico
+		var inventario_logico = self.get_parent().find_child("ComponentManager").Inventario.inventario_logico
 		var local_inventario = self.find_child("LocalInventarioPlayer")
 		
 		inventario_visual.iniciar_inventario_visual_(inventario_logico, local_inventario)
@@ -49,8 +49,11 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 
 
 func _on_draw() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	player_hud_info.visible = false
+	
 
 
 func _on_hidden() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player_hud_info.visible = true

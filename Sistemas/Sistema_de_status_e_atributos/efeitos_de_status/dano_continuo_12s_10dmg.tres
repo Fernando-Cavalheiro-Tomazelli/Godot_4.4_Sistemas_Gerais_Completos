@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c2s4mgx0rtfsw" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_dano_continuo_base.gd" id="1_4mbuf"]
 [ext_resource type="Texture2D" uid="uid://bc8mw2dhfdhfi" path="res://Resouces/icones/fire.png" id="1_i5o7y"]
-[ext_resource type="Script" uid="uid://c5rfvu6ip2wcd" path="res://Scripts/Classes_Base/aplicar_dano_unico_base.gd" id="1_yxm7g"]
-[ext_resource type="Resource" uid="uid://d33fk4y2olshh" path="res://Scripts/Classes_Base/valor_flutuante_dano.tres" id="2_snmrc"]
+[ext_resource type="Script" uid="uid://c5rfvu6ip2wcd" path="res://Sistemas/Danos_e_Curas/Efeitos_Base/aplicar_dano_unico_base.gd" id="1_snmrc"]
+[ext_resource type="Resource" uid="uid://d33fk4y2olshh" path="res://Sistemas/Valores_flutuantes/valor_flutuante_dano.tres" id="2_snmrc"]
 
 [sub_resource type="Resource" id="Resource_7t7lf"]
-script = ExtResource("1_yxm7g")
+script = ExtResource("1_snmrc")
 chance_aplicar_efeito = 1.0
 dano_minimo = 5.0
 dano_maximo = 12.0
@@ -17,10 +17,7 @@ metadata/_custom_type_script = "uid://c5rfvu6ip2wcd"
 
 [resource]
 script = ExtResource("1_4mbuf")
-nome_do_efeito = "DanoContinuoBase"
 icone_do_efeito = ExtResource("1_i5o7y")
-chance_de_aplicar_efeito = 1.0
-duracao_do_efeito = 12.0
 intervalo_por_hit = 1.0
 dano_por_hit = SubResource("Resource_7t7lf")
 metadata/_custom_type_script = "uid://c2s4mgx0rtfsw"

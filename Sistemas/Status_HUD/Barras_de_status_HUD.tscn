@@ -1,0 +1,419 @@
+[gd_scene load_steps=20 format=3 uid="uid://c3vh3rh3kojay"]
+
+[ext_resource type="Script" uid="uid://crlarx7teadsq" path="res://Sistemas/Status_HUD/barras_de_status_hud.gd" id="1_xtx30"]
+[ext_resource type="Texture2D" uid="uid://pyoqwgyejmxp" path="res://Resouces/icones/silhueta-de-formato-simples-de-coracao.png" id="2_1dqv7"]
+[ext_resource type="Texture2D" uid="uid://dy4g0meuii3lw" path="res://Resouces/icones/instantaneo.png" id="3_3lwqu"]
+[ext_resource type="Texture2D" uid="uid://bouxiavtd86sp" path="res://Resouces/icones/restaurante.png" id="4_1md36"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l167"]
+bg_color = Color(0, 0, 0, 0.596078)
+border_color = Color(0, 0, 0, 0.596078)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tgyp"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5i7r"]
+bg_color = Color(0.592135, 1, 0.605836, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uf6l"]
+bg_color = Color(9.28924e-06, 0.887337, 0.0565067, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_xtx30"]
+line_spacing = 0.0
+font_size = 10
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1dqv7"]
+line_spacing = 0.0
+font_size = 12
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtx30"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dqv7"]
+bg_color = Color(0.266876, 0.670391, 0.681053, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lwqu"]
+bg_color = Color(1.15514e-06, 0.659233, 0.848789, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lwqu"]
+line_spacing = 0.0
+font_size = 12
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1md36"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t82s7"]
+bg_color = Color(0.618666, 0.345186, 0.0643594, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1j5vy"]
+bg_color = Color(0.820069, 0.526815, 0.0970541, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_c662d"]
+line_spacing = 0.0
+font_size = 10
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6xpco"]
+line_spacing = 0.0
+font_size = 12
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Barras_de_status_HUD" type="Control" node_paths=PackedStringArray("barra_vida_principal", "barra_vida_fundo", "barra_vida_valor", "barra_energia_principal", "barra_energia_fundo", "barra_energia_valor", "barra_fome_principal", "barra_fome_fundo", "barra_fome_valor")]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 3
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.27
+anchor_bottom = 0.12
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xtx30")
+barra_vida_principal = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal")
+barra_vida_fundo = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo")
+barra_vida_valor = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal/MarginContainer/Valor_Barra_Vida")
+barra_energia_principal = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal")
+barra_energia_fundo = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo")
+barra_energia_valor = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal/MarginContainer3/Valor_Barra_Energia")
+barra_fome_principal = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal")
+barra_fome_fundo = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo")
+barra_fome_valor = NodePath("PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal/MarginContainer/Valor_Barra_Fome")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3l167")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Barra_Vida_Fundo" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_1tgyp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r5i7r")
+value = 80.0
+show_percentage = false
+
+[node name="Barra_Vida_Principal" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_5uf6l")
+value = 60.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icone_Barra_Vida" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_1dqv7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal/HBoxContainer"]
+layout_mode = 2
+
+[node name="Nome_Barra_Vida" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "Vida"
+label_settings = SubResource("LabelSettings_xtx30")
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -8.5
+offset_right = 9.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Valor_Barra_Vida" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Vida_Fundo/Barra_Vida_Principal/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 12
+text = "0/0"
+label_settings = SubResource("LabelSettings_1dqv7")
+
+[node name="Barra_Energia_Fundo" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_xtx30")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1dqv7")
+value = 80.0
+show_percentage = false
+
+[node name="Barra_Energia_Principal" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_3lwqu")
+value = 60.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icone_Barra_Energia" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_3lwqu")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal/HBoxContainer"]
+layout_mode = 2
+
+[node name="Nome_Barra_Energia" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "Energia"
+label_settings = SubResource("LabelSettings_xtx30")
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -7.0
+offset_right = 8.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Valor_Barra_Energia" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Energia_Fundo/Barra_Energia_Principal/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "0/0"
+label_settings = SubResource("LabelSettings_3lwqu")
+
+[node name="Barra_Fome_Fundo" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_1md36")
+theme_override_styles/fill = SubResource("StyleBoxFlat_t82s7")
+value = 80.0
+show_percentage = false
+
+[node name="Barra_Fome_Principal" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_1j5vy")
+value = 60.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icone_Barra_Fome" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_1md36")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal/HBoxContainer"]
+layout_mode = 2
+
+[node name="Nome_Barra_Fome" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "Fome"
+label_settings = SubResource("LabelSettings_c662d")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Valor_Barra_Fome" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Barra_Fome_Fundo/Barra_Fome_Principal/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "0/0"
+label_settings = SubResource("LabelSettings_6xpco")
