@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dq4xb37bbrt5m"]
 
 [ext_resource type="Script" uid="uid://ccqesywg873w1" path="res://Sistemas/Menus/Menu Inicial/menu_inicial_principal.gd" id="1_mwmyl"]
-[ext_resource type="Texture2D" uid="uid://d2fif0raqjbat" path="res://Resouces/Imagens/Menu_Background/background_tema_dev_games.jpg" id="2_4ec65"]
+[ext_resource type="Texture2D" uid="uid://d2fif0raqjbat" path="res://Resources/Imagens/Menu_Background/background_tema_dev_games.jpg" id="2_4ec65"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iqhim"]
 font_size = 60

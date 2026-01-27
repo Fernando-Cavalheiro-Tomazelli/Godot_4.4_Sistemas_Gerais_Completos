@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DanoContinuoBase" load_steps=6 format=3 uid="uid://c5lb8c074eeh8"]
 
 [ext_resource type="Script" uid="uid://c2s4mgx0rtfsw" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/efeito_dano_continuo_base.gd" id="1_4mbuf"]
-[ext_resource type="Texture2D" uid="uid://bc8mw2dhfdhfi" path="res://Resouces/icones/fire.png" id="1_i5o7y"]
+[ext_resource type="Texture2D" uid="uid://bc8mw2dhfdhfi" path="res://Resources/icones/fire.png" id="1_i5o7y"]
 [ext_resource type="Script" uid="uid://c5rfvu6ip2wcd" path="res://Sistemas/Danos_e_Curas/Efeitos_Base/aplicar_dano_unico_base.gd" id="1_snmrc"]
 [ext_resource type="Resource" uid="uid://d33fk4y2olshh" path="res://Sistemas/Valores_flutuantes/valor_flutuante_dano.tres" id="2_snmrc"]
 

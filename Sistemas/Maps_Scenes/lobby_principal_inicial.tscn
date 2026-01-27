@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://chyb3ogy44nmo"]
 
 [ext_resource type="PackedScene" uid="uid://cxcyr8rxnnpdt" path="res://Enviroment/Ambiente.tscn" id="1_hl743"]
-[ext_resource type="Texture2D" uid="uid://ca0h2ercg3ia4" path="res://Resouces/Texturas/wood_cabinet_worn_long_diff_2k.jpg" id="1_l1xmg"]
-[ext_resource type="Texture2D" uid="uid://b2fv1rp7j5mt0" path="res://Resouces/Texturas/wood_cabinet_worn_long_nor_gl_2k.jpg" id="2_0gcuh"]
-[ext_resource type="Texture2D" uid="uid://biwb2c2mtdpmk" path="res://Resouces/Texturas/wood_cabinet_worn_long_rough_2k.jpg" id="3_25mgo"]
+[ext_resource type="Texture2D" uid="uid://ca0h2ercg3ia4" path="res://Resources/Texturas/wood_cabinet_worn_long_diff_2k.jpg" id="1_l1xmg"]
+[ext_resource type="Texture2D" uid="uid://b2fv1rp7j5mt0" path="res://Resources/Texturas/wood_cabinet_worn_long_nor_gl_2k.jpg" id="2_0gcuh"]
+[ext_resource type="Texture2D" uid="uid://biwb2c2mtdpmk" path="res://Resources/Texturas/wood_cabinet_worn_long_rough_2k.jpg" id="3_25mgo"]
 [ext_resource type="PackedScene" uid="uid://bsownd8njeoui" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/item_coletavel_base.tscn" id="5_2q2r0"]
 [ext_resource type="PackedScene" uid="uid://diqsut1cdl703" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/bau_armazenamento.tscn" id="6_mvcve"]
 

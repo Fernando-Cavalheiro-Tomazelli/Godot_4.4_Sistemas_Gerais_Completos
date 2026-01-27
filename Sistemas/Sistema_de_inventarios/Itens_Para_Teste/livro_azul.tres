@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://dbu5l2112e4sd"]
 
-[ext_resource type="Texture2D" uid="uid://c42oksh0qy4bm" path="res://Resouces/icones/e-book.png" id="1_1acjo"]
+[ext_resource type="Texture2D" uid="uid://c42oksh0qy4bm" path="res://Resources/icones/e-book.png" id="1_1acjo"]
 [ext_resource type="Script" uid="uid://bwxgvo4ot73ij" path="res://Sistemas/Sistema_de_inventarios/item_base.gd" id="1_j0qwg"]
 
 [resource]

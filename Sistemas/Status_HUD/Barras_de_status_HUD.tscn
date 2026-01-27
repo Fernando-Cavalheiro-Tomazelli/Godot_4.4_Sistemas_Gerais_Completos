@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://c3vh3rh3kojay"]
 
 [ext_resource type="Script" uid="uid://crlarx7teadsq" path="res://Sistemas/Status_HUD/barras_de_status_hud.gd" id="1_xtx30"]
-[ext_resource type="Texture2D" uid="uid://pyoqwgyejmxp" path="res://Resouces/icones/silhueta-de-formato-simples-de-coracao.png" id="2_1dqv7"]
-[ext_resource type="Texture2D" uid="uid://dy4g0meuii3lw" path="res://Resouces/icones/instantaneo.png" id="3_3lwqu"]
-[ext_resource type="Texture2D" uid="uid://bouxiavtd86sp" path="res://Resouces/icones/restaurante.png" id="4_1md36"]
+[ext_resource type="Texture2D" uid="uid://pyoqwgyejmxp" path="res://Resources/icones/silhueta-de-formato-simples-de-coracao.png" id="2_1dqv7"]
+[ext_resource type="Texture2D" uid="uid://dy4g0meuii3lw" path="res://Resources/icones/instantaneo.png" id="3_3lwqu"]
+[ext_resource type="Texture2D" uid="uid://bouxiavtd86sp" path="res://Resources/icones/restaurante.png" id="4_1md36"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l167"]
 bg_color = Color(0, 0, 0, 0.596078)

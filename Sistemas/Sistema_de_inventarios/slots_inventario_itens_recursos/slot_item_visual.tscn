@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds2d5358rsa64"]
 
 [ext_resource type="Script" uid="uid://dd2vqblsx0syw" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item_visual.gd" id="1_7lnwl"]
-[ext_resource type="Texture2D" uid="uid://dxyxxg3h3dx0b" path="res://Resouces/icones/icon.svg" id="2_7lnwl"]
+[ext_resource type="Texture2D" uid="uid://dxyxxg3h3dx0b" path="res://Resources/icones/icon.svg" id="2_7lnwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_41sud"]
 font_size = 20

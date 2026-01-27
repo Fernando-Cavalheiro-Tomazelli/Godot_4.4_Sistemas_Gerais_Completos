@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuffHpBase" load_steps=3 format=3 uid="uid://dtyvkt6j8r4db"]
 
-[ext_resource type="Texture2D" uid="uid://biswatpv08bss" path="res://Resouces/icones/defesa.png" id="1_5e4et"]
+[ext_resource type="Texture2D" uid="uid://biswatpv08bss" path="res://Resources/icones/defesa.png" id="1_5e4et"]
 [ext_resource type="Script" uid="uid://hrlalk6ygedl" path="res://Sistemas/Sistema_de_status_e_atributos/efeitos_de_status/buff_+hp_base.gd" id="1_66utg"]
 
 [resource]
