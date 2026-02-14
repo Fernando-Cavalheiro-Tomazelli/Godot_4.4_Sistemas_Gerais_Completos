@@ -6,8 +6,10 @@ extends Control
 
 
 
+
 func _ready() -> void:
 	menu_config_in_game.hide()
+	menu_select_mapas.hide()
 	
 	
 	
@@ -37,3 +39,8 @@ func _on_draw() -> void:
 
 func _on_tree_exited() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_escolher_button_pressed() -> void:
+	menu_select_mapas.show()
+	menu_options.hide()

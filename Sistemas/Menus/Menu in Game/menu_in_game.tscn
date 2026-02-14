@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf01fo6if5wvw"]
+[gd_scene format=3 uid="uid://cf01fo6if5wvw"]
 
 [ext_resource type="Script" uid="uid://buo32tall8od6" path="res://Sistemas/Menus/Menu in Game/menu_in_game.gd" id="1_2q5e4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iplex"]
 font_size = 30
 
-[node name="MenuInGame" type="Control" node_paths=PackedStringArray("menu_options", "menu_config_in_game", "menu_select_mapas")]
+[node name="MenuInGame" type="Control" unique_id=1569290110 node_paths=PackedStringArray("menu_options", "menu_config_in_game", "menu_select_mapas")]
 z_index = 100
 layout_mode = 3
 anchors_preset = 15
@@ -18,7 +18,7 @@ menu_options = NodePath("Options")
 menu_config_in_game = NodePath("menu_config_in_game")
 menu_select_mapas = NodePath("menu_select_map")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=33526714]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.117647, 0.117647, 0.905882)
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Label" type="Label" parent="ColorRect" unique_id=261076530]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -40,7 +40,7 @@ text = "MENU"
 label_settings = SubResource("LabelSettings_iplex")
 horizontal_alignment = 1
 
-[node name="Options" type="MarginContainer" parent="."]
+[node name="Options" type="MarginContainer" parent="." unique_id=738356764]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,10 +54,10 @@ offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=553219455]
 layout_mode = 2
 
-[node name="Escolher_button" type="Button" parent="Options/VBoxContainer"]
+[node name="Escolher_button" type="Button" parent="Options/VBoxContainer" unique_id=821011358]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.870588, 0.796078, 0.0313726, 1)
@@ -66,7 +66,7 @@ theme_override_font_sizes/font_size = 30
 text = "Escolher Mapas
 "
 
-[node name="Continue_button2" type="Button" parent="Options/VBoxContainer"]
+[node name="Continue_button2" type="Button" parent="Options/VBoxContainer" unique_id=2076856349]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.870588, 0.796078, 0.0313726, 1)
@@ -74,14 +74,14 @@ theme_override_colors/font_hover_color = Color(3.08037e-06, 0.652261, 0.990301, 
 theme_override_font_sizes/font_size = 30
 text = "Continue"
 
-[node name="Config_button" type="Button" parent="Options/VBoxContainer"]
+[node name="Config_button" type="Button" parent="Options/VBoxContainer" unique_id=530601107]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.870588, 0.796078, 0.0313726, 1)
 theme_override_colors/font_hover_color = Color(0, 0.65098, 0.992157, 1)
 theme_override_font_sizes/font_size = 30
 text = "Configuração"
 
-[node name="quit_game_button" type="Button" parent="Options/VBoxContainer"]
+[node name="quit_game_button" type="Button" parent="Options/VBoxContainer" unique_id=2001322984]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.870588, 0.796078, 0.0313726, 1)
@@ -89,7 +89,7 @@ theme_override_colors/font_hover_color = Color(0, 0.65098, 0.992157, 1)
 theme_override_font_sizes/font_size = 30
 text = "Sair do Jogo"
 
-[node name="menu_config_in_game" type="Control" parent="."]
+[node name="menu_config_in_game" type="Control" parent="." unique_id=1397592805]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -98,7 +98,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="menu_config_in_game"]
+[node name="MarginContainer" type="MarginContainer" parent="menu_config_in_game" unique_id=837176405]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02
@@ -106,32 +106,32 @@ anchor_top = 0.1
 anchor_right = 0.2
 anchor_bottom = 0.9
 
-[node name="VBoxContainer" type="VBoxContainer" parent="menu_config_in_game/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="menu_config_in_game/MarginContainer" unique_id=1724530485]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer" unique_id=2411551]
 layout_mode = 2
 text = "Video"
 
-[node name="Button2" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer" unique_id=759734064]
 layout_mode = 2
 text = "Som"
 
-[node name="Button3" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer" unique_id=613353184]
 layout_mode = 2
 text = "Interface"
 
-[node name="Button4" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer" unique_id=898888462]
 layout_mode = 2
 text = "Controles"
 
-[node name="Button5" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer"]
+[node name="Button5" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer" unique_id=1764657086]
 layout_mode = 2
 
-[node name="Button6" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer"]
+[node name="Button6" type="Button" parent="menu_config_in_game/MarginContainer/VBoxContainer" unique_id=711602671]
 layout_mode = 2
 
-[node name="menu_select_map" type="Control" parent="."]
+[node name="menu_select_map" type="Control" parent="." unique_id=1142095630]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -140,7 +140,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="menu_select_map"]
+[node name="GridContainer" type="GridContainer" parent="menu_select_map" unique_id=1044150473]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -155,27 +155,27 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 6
 
-[node name="Button" type="Button" parent="menu_select_map/GridContainer"]
+[node name="lobby_principal_btn" type="Button" parent="menu_select_map/GridContainer" unique_id=121973247]
+layout_mode = 2
+text = "Lobby Principal
+"
+
+[node name="inventario_teste_btn" type="Button" parent="menu_select_map/GridContainer" unique_id=1602486241]
+layout_mode = 2
+text = "Inventario Testes
+"
+
+[node name="Button3" type="Button" parent="menu_select_map/GridContainer" unique_id=55237446]
 layout_mode = 2
 text = "MAPA
 "
 
-[node name="Button2" type="Button" parent="menu_select_map/GridContainer"]
+[node name="Button4" type="Button" parent="menu_select_map/GridContainer" unique_id=598117277]
 layout_mode = 2
 text = "MAPA
 "
 
-[node name="Button3" type="Button" parent="menu_select_map/GridContainer"]
-layout_mode = 2
-text = "MAPA
-"
-
-[node name="Button4" type="Button" parent="menu_select_map/GridContainer"]
-layout_mode = 2
-text = "MAPA
-"
-
-[node name="Button5" type="Button" parent="menu_select_map/GridContainer"]
+[node name="Button5" type="Button" parent="menu_select_map/GridContainer" unique_id=50068483]
 layout_mode = 2
 text = "MAPA
 "
@@ -183,5 +183,6 @@ text = "MAPA
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="pressed" from="Options/VBoxContainer/Escolher_button" to="." method="_on_escolher_button_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Config_button" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/quit_game_button" to="." method="_on_quit_game_button_pressed"]

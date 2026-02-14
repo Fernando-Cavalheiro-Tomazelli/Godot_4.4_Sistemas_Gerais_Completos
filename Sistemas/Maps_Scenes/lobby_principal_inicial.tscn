@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://chyb3ogy44nmo"]
+[gd_scene format=3 uid="uid://chyb3ogy44nmo"]
 
+[ext_resource type="Script" uid="uid://mqkx0q3257qg" path="res://Sistemas/Maps_Scenes/lobby_principal_inicial.gd" id="1_2q2r0"]
 [ext_resource type="PackedScene" uid="uid://cxcyr8rxnnpdt" path="res://Enviroment/Ambiente.tscn" id="1_hl743"]
 [ext_resource type="Texture2D" uid="uid://ca0h2ercg3ia4" path="res://Resources/Texturas/wood_cabinet_worn_long_diff_2k.jpg" id="1_l1xmg"]
 [ext_resource type="Texture2D" uid="uid://b2fv1rp7j5mt0" path="res://Resources/Texturas/wood_cabinet_worn_long_nor_gl_2k.jpg" id="2_0gcuh"]
 [ext_resource type="Texture2D" uid="uid://biwb2c2mtdpmk" path="res://Resources/Texturas/wood_cabinet_worn_long_rough_2k.jpg" id="3_25mgo"]
 [ext_resource type="PackedScene" uid="uid://bsownd8njeoui" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/item_coletavel_base.tscn" id="5_2q2r0"]
-[ext_resource type="PackedScene" uid="uid://diqsut1cdl703" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/bau_armazenamento.tscn" id="6_mvcve"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nq5dv"]
 albedo_texture = ExtResource("1_l1xmg")
@@ -32,60 +32,58 @@ orientation = 2
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_25mgo"]
 points = PackedVector3Array(15, 1.5, 0, 15, -1.5, 0, -15, 1.5, 0, -15, -1.5, 0)
 
-[node name="LobbyPrincipalInicial" type="Node3D"]
+[node name="LobbyPrincipalInicial" type="Node3D" unique_id=1657871735]
+script = ExtResource("1_2q2r0")
 
-[node name="Ambiente" parent="." instance=ExtResource("1_hl743")]
+[node name="Ambiente" parent="." unique_id=1683015475 instance=ExtResource("1_hl743")]
 
-[node name="Chao" type="StaticBody3D" parent="."]
+[node name="Chao" type="StaticBody3D" parent="." unique_id=1952822172]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Chao"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chao" unique_id=1230938044]
 mesh = SubResource("PlaneMesh_5cvlp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chao"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chao" unique_id=1284816389]
 shape = SubResource("ConvexPolygonShape3D_nasvo")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1398662885]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.92419, 0)
 spot_range = 14.983
 
-[node name="Parede" type="StaticBody3D" parent="."]
+[node name="Parede" type="StaticBody3D" parent="." unique_id=972652181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39425, -14.7263)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede" unique_id=1112539466]
 mesh = SubResource("PlaneMesh_0gcuh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede" unique_id=84579492]
 shape = SubResource("ConvexPolygonShape3D_25mgo")
 
-[node name="Parede2" type="StaticBody3D" parent="."]
+[node name="Parede2" type="StaticBody3D" parent="." unique_id=466888670]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.39425, 14.7541)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede2" unique_id=1716243199]
 mesh = SubResource("PlaneMesh_0gcuh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede2" unique_id=701048787]
 shape = SubResource("ConvexPolygonShape3D_25mgo")
 
-[node name="Parede3" type="StaticBody3D" parent="."]
+[node name="Parede3" type="StaticBody3D" parent="." unique_id=21461719]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.8792, 1.36988, -0.154058)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede3" unique_id=1805429125]
 mesh = SubResource("PlaneMesh_0gcuh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede3" unique_id=377335890]
 shape = SubResource("ConvexPolygonShape3D_25mgo")
 
-[node name="Parede4" type="StaticBody3D" parent="."]
+[node name="Parede4" type="StaticBody3D" parent="." unique_id=1614137646]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.6839, 1.36988, -0.154058)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parede4" unique_id=1420644456]
 mesh = SubResource("PlaneMesh_0gcuh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede4" unique_id=1867216191]
 shape = SubResource("ConvexPolygonShape3D_25mgo")
 
-[node name="ItemColetavelBase" parent="." instance=ExtResource("5_2q2r0")]
+[node name="ItemColetavelBase" parent="." unique_id=1228337249 instance=ExtResource("5_2q2r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0437965, 0, 2.8115578)
-
-[node name="BauArmazenamento" parent="." instance=ExtResource("6_mvcve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.107945, 0.3565765, -1.5106678)

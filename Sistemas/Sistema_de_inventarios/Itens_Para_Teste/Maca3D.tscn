@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7gtmeub0tay4"]
+[gd_scene format=3 uid="uid://d15wv576mbhlx"]
 
 [ext_resource type="Script" uid="uid://bgua6uh8s6qy0" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca_3d.gd" id="1_un00x"]
 [ext_resource type="Script" uid="uid://bfeiphq2lyelj" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/coletavel-inventario.gd" id="2_u0wbd"]
@@ -16,23 +16,23 @@ metadata/_custom_type_script = "uid://b6wcf33erjwqv"
 [sub_resource type="SphereShape3D" id="SphereShape3D_u0wbd"]
 radius = 0.911
 
-[node name="Maca3d" type="StaticBody3D" node_paths=PackedStringArray("item_coletavel")]
+[node name="Maca3d" type="StaticBody3D" unique_id=670520451 node_paths=PackedStringArray("item_coletavel")]
 script = ExtResource("1_un00x")
 item_coletavel = NodePath("ColetavelInventario")
 
-[node name="ColetavelInventario" type="Node" parent="."]
+[node name="ColetavelInventario" type="Node" parent="." unique_id=1775191925]
 script = ExtResource("2_u0wbd")
 item_slot = SubResource("Resource_maixe")
 metadata/_custom_type_script = "uid://bfeiphq2lyelj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=761193942]
 shape = SubResource("SphereShape3D_1xbch")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1029213028]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=772776970]
 shape = SubResource("SphereShape3D_u0wbd")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Sistemas_Completos_Gerais"
 run/main_scene="uid://dq4xb37bbrt5m"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://cvm8b2hcf671y"
 
 [autoload]
@@ -20,6 +24,8 @@ config/icon="uid://cvm8b2hcf671y"
 MultiplayerServerConfig="*res://MultiplayerManager/Host_Servidor/multiplayer_server_config.gd"
 MultiplayerClientConfig="*res://MultiplayerManager/Cliente/multiplayer_client_config.gd"
 GameManager="*res://Gerenciador de Jogo/GameManager.gd"
+SceneManager="*uid://bt3ool2kcph5x"
+PlayerManager="*uid://by6u3jkgdv5q4"
 
 [display]
 

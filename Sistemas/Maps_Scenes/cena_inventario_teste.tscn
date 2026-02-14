@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c108ivww1f13p"]
+
+[ext_resource type="PackedScene" uid="uid://c0dgwv1r8d2b3" path="res://Sistemas/Maps_Scenes/chao_teste_padrao.tscn" id="1_i7koc"]
+[ext_resource type="PackedScene" uid="uid://diqsut1cdl703" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/bau_armazenamento.tscn" id="2_n4dem"]
+[ext_resource type="PackedScene" uid="uid://bsownd8njeoui" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/item_coletavel_base.tscn" id="3_n4dem"]
+
+[node name="CenaInventarioTeste" type="Node" unique_id=385590559]
+
+[node name="ChaoTestePadrao" parent="." unique_id=1007756569 instance=ExtResource("1_i7koc")]
+
+[node name="BauArmazenamento" parent="." unique_id=1497926570 instance=ExtResource("2_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9567776, 0.35657698, 0.91269207)
+
+[node name="ItemColetavelBase" parent="." unique_id=560817936 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.268142, -4.7683716e-07, 0.7384138)
+
+[node name="ItemColetavelBase2" parent="." unique_id=2106260601 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3834047, -4.7683716e-07, 4.104353)
+
+[node name="ItemColetavelBase3" parent="." unique_id=1928953919 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2408326, 0, 6.857621)
+
+[node name="ItemColetavelBase4" parent="." unique_id=1838711280 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.80776, 0, 0.5397444)
+
+[node name="ItemColetavelBase5" parent="." unique_id=764726796 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.782538, -4.7683716e-07, 3.121292)
+
+[node name="ItemColetavelBase6" parent="." unique_id=450324843 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7827106, -4.7683716e-07, 5.37189)
+
+[node name="ItemColetavelBase7" parent="." unique_id=1995618075 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9052677, -4.7683716e-07, 9.192833)
+
+[node name="ItemColetavelBase8" parent="." unique_id=1270481038 instance=ExtResource("3_n4dem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6449814, -4.7683716e-07, 10.642548)

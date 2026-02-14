@@ -1,6 +1,5 @@
 extends Control
 
-var gerenciador_de_jogo = preload("res://Gerenciador de Jogo/GerenciadorDeJogo.tscn")
 
 @export var opcoes_menu_principal : PanelContainer
 @export var menu_inicial_jogar : Control
@@ -39,7 +38,8 @@ func _on_novo_jogo_button_down() -> void:
 func _on_iniciar_jogo_solo_button_down() -> void:
 	MultiplayerServerConfig.criar_servidor(nome_jogador.text)
 	GameManager.menu_inicial_ativo = false
-	get_tree().change_scene_to_packed(gerenciador_de_jogo)
+	SceneManager.carregar_cena("lobby_principal")
+	#get_tree().change_scene_to_packed(gerenciador_de_jogo)
 
 
 func _on_multiplayer_button_down() -> void:
