@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://dbu5l2112e4sd"]
+[gd_resource type="Resource" script_class="ItemBase" format=3 uid="uid://dbu5l2112e4sd"]
 
 [ext_resource type="Texture2D" uid="uid://c42oksh0qy4bm" path="res://Resources/icones/e-book.png" id="1_1acjo"]
 [ext_resource type="Script" uid="uid://bwxgvo4ot73ij" path="res://Sistemas/Sistema_de_inventarios/item_base.gd" id="1_j0qwg"]
@@ -9,6 +9,7 @@ item_id = "livro_azul"
 nome_item = "Livro Azul"
 descricao_item = "Antigo Livro Azul."
 icone_item = ExtResource("1_1acjo")
+estacavel = true
 maximo_por_pilha = 3
 caminho_cena_item_3d = "res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul_visual.tscn"
 metadata/_custom_type_script = "uid://bwxgvo4ot73ij"

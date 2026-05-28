@@ -86,4 +86,16 @@ mesh = SubResource("PlaneMesh_0gcuh")
 shape = SubResource("ConvexPolygonShape3D_25mgo")
 
 [node name="ItemColetavelBase" parent="." unique_id=1228337249 instance=ExtResource("5_2q2r0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0437965, 0, 2.8115578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.976948, 0.3531263, 6.136338)
+
+[node name="ItemColetavelBase2" parent="." unique_id=1025289772 instance=ExtResource("5_2q2r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.835573, 0.3531263, 3.159351)
+
+[node name="ItemColetavelBase3" parent="." unique_id=1532644077 instance=ExtResource("5_2q2r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0156765, 0.3531263, 0.13192964)
+
+[node name="ItemColetavelBase4" parent="." unique_id=1361858240 instance=ExtResource("5_2q2r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.698908, 0.3531263, -4.030388)
+
+[node name="ItemColetavelBase5" parent="." unique_id=1354411999 instance=ExtResource("5_2q2r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.965618, 0.3531263, -8.28914)

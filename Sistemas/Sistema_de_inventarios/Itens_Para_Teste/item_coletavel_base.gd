@@ -23,4 +23,7 @@ func adicionar_ao_inventario(alvo):
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	#verificação efetiva, já verifica tudo, se possui inventário ..., já passa o alvo com inventario
+	if not area or not area.get_parent() or not area.get_parent().find_child("ComponentManager") or not area.get_parent().find_child("ComponentManager").Inventario:
+		return
 	adicionar_ao_inventario(area.get_parent())

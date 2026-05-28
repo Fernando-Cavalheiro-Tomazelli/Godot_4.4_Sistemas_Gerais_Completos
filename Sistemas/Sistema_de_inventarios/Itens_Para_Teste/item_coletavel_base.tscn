@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsownd8njeoui"]
+[gd_scene format=3 uid="uid://bsownd8njeoui"]
 
 [ext_resource type="Script" uid="uid://d3jlcjh3ujfo5" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/item_coletavel_base.gd" id="1_2wnx5"]
 [ext_resource type="Resource" uid="uid://dbu5l2112e4sd" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul.tres" id="3_bfwn4"]
@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_571nv"]
 script = ExtResource("4_i32yf")
 item_atual_do_slot = ExtResource("3_bfwn4")
-quantidade_atual_no_slot = 5
+quantidade_atual_no_slot = 2
 metadata/_custom_type_script = "uid://b6wcf33erjwqv"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_txkkd"]
@@ -16,18 +16,18 @@ size = Vector3(0.5, 0.7, 0.2)
 [sub_resource type="SphereShape3D" id="SphereShape3D_u0wbd"]
 radius = 0.911
 
-[node name="ItemColetavelBase" type="StaticBody3D"]
+[node name="ItemColetavelBase" type="StaticBody3D" unique_id=1556572273]
 script = ExtResource("1_2wnx5")
 item_slot = SubResource("Resource_571nv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1967290251]
 shape = SubResource("BoxShape3D_txkkd")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1900967328]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=952708859]
 shape = SubResource("SphereShape3D_u0wbd")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
