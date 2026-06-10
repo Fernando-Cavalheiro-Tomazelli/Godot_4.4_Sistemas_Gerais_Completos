@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://div2ng038opl4"
 
 [sub_resource type="Resource" id="Resource_p2qgc"]
 script = ExtResource("4_x8k55")
-tamanho_inventario = 4
+tamanho_inventario = 15
 dono_do_inventario = "Cavalheiro"
 metadata/_custom_type_script = "uid://b17cjulvgwcry"
 

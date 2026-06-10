@@ -10,6 +10,6 @@ nome_item = "Livro Azul"
 descricao_item = "Antigo Livro Azul."
 icone_item = ExtResource("1_1acjo")
 estacavel = true
-maximo_por_pilha = 3
+maximo_por_pilha = 5
 caminho_cena_item_3d = "res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul_visual.tscn"
 metadata/_custom_type_script = "uid://bwxgvo4ot73ij"

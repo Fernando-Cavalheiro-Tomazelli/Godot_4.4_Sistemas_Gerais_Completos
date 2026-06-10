@@ -5,9 +5,15 @@ class_name InventarioBase
 @export var dono_do_inventario = "Desconhecido"
 
 var inventario_logico : Array[SlotItemBase]
-#cache
+#caches
+
+#Cache contendo slots totalmente vazios.
 var cache_slots_vazios : PackedByteArray
+
+#cache contendo slots já com itens que são estacáveis e possuem espaço.
 var cache_slots_com_espaco : Dictionary
+
+var slots_por_item_id: Dictionary
 
 func iniciar_inventario():
 	if tamanho_inventario > 0:
@@ -35,188 +41,126 @@ func expandir_inventario(quantidade : int) -> void:
 	#self.find_parent("Player3D").find_child("InventarioVisual").iniciar_inventario_visual(inventario_logico)
 		
 func adicionar_item_ao_inventario(item_recebido: ItemBase, quantidade: int) -> bool:
-		
+	#se o inventário lógico não existir ou tamanho foi 0 ou menor retorna falso.	
 	if inventario_logico == null or inventario_logico.size() <= 0:
 		return false
-		
+	#se o cache de slots vazios e de slots com espaços estiverem vazios, não existem espaço, retorna falso.	
 	if cache_slots_vazios.is_empty() and cache_slots_com_espaco.is_empty():
 		print("O cache diz que o inventário está cheio")
 		return false
-		
-	var itens_sobrando = 0
-	
-	if cache_slots_com_espaco.has(item_recebido.item_id):
-		for index in range(cache_slots_com_espaco[item_recebido.item_id]):
-			print("bagui doido")
-		
-		
-		
-	else:	
-		
-		for index in range(cache_slots_vazios.size()):
-			var slot = inventario_logico[cache_slots_vazios[index]]	
-			
-			if item_recebido.estacavel == false:
-				slot.adicionar_item_ao_slot(item_recebido, 1)
-				cache_slots_vazios.remove_at(index)
-				print("Adicionado item não estacável no inventário")
-				print("Quantidade de slots vazios no cachê é de:", cache_slots_vazios.size())		
-				return true
-					
-			elif item_recebido.estacavel == true:
-				slot.espaco_livre_na_pilha = item_recebido.maximo_por_pilha
-				if quantidade <= slot.espaco_livre_na_pilha:
-					slot.adicionar_item_ao_slot(item_recebido, quantidade)
-					cache_slots_vazios.remove_at(index)
-					if slot.espaco_livre_na_pilha >= 1:
-						cache_slots_com_espaco[slot.item_id] = []
-						cache_slots_com_espaco[slot.item_id].append(slot.index_do_slot)
-					print("Adicionado item estacável que usou somente um slot da pilha")
-					return true
-				else:
-					itens_sobrando = quantidade - item_recebido.maximo_por_pilha
-					slot.adicionar_item_ao_slot(item_recebido, item_recebido.maximo_por_pilha)
-					cache_slots_vazios.remove_at(index)
-					print("Adicionado item estacável que ocupou mais de uma pilha")
-					print("Quantidade de itens sobrando apos adicionar no slot é de: ", itens_sobrando)
-					print("Quantidade de slots vazios no cachê é de:", cache_slots_vazios.size())
-					break
-	
-	while itens_sobrando > 0:
-		for index in range(cache_slots_vazios.size()):
-			var slot = inventario_logico[cache_slots_vazios[index]]	
-			if item_recebido.estacavel == false:
-				slot.adicionar_item_ao_slot(item_recebido, 1)
-				cache_slots_vazios.remove_at(index)
-				print("Adicionado item não estacável no inventário")
-				print("Quantidade de slots vazios no cachê é de:", cache_slots_vazios.size())
-			
-				return true
-		
-			elif item_recebido.estacavel == true:
-				slot.espaco_livre_na_pilha = item_recebido.maximo_por_pilha	
-				if quantidade <= slot.espaco_livre_na_pilha:
-					slot.adicionar_item_ao_slot(item_recebido, quantidade)
-					cache_slots_vazios.remove_at(index)
-					print("Adicionado item estacável que usou somente um slot da pilha")
-					return true
-				else:
-					itens_sobrando = quantidade - item_recebido.maximo_por_pilha
-					slot.adicionar_item_ao_slot(item_recebido, item_recebido.maximo_por_pilha)
-					cache_slots_vazios.remove_at(index)
-					print("Adicionado item estacável que ocupou mais de uma pilha")
-					print("Quantidade de itens sobrando apos adicionar no slot é de: ", itens_sobrando)
-					print("Quantidade de slots vazios no cachê é de:", cache_slots_vazios.size())
-	#código antigo daqui pra baixo:
-	#for index in range(inventario_logico.size()):
-		#var slot = inventario_logico[index]
-		## Verifica se o slot tem o mesmo item e é empilhável
-		#if slot.item_atual_do_slot and slot.item_atual_do_slot.item_id == item_recebido.item_id and slot.espaco_livre_na_pilha > 0:
-			#if quantidade <= slot.espaco_livre_na_pilha:
-				#slot.somar_quantia_na_pilha(item_recebido, quantidade)
-				#return true
-			#else:
-				#itens_sobrando = quantidade - slot.espaco_livre_na_pilha
-				#slot.somar_quantia_na_pilha(item_recebido, slot.espaco_livre_na_pilha)
-				#break
-		#elif slot.item_atual_do_slot == null:
-			#slot.espaco_livre_na_pilha = item_recebido.maximo_por_pilha
-			#if quantidade <= slot.espaco_livre_na_pilha:
-				#slot.adicionar_item_ao_slot(item_recebido, quantidade)
-				#return true
-			#else:
-				#itens_sobrando = quantidade - item_recebido.maximo_por_pilha
-				#slot.adicionar_item_ao_slot(item_recebido, item_recebido.maximo_por_pilha)
-				#break
-				#
-	#while itens_sobrando > 0:
-		#var espaço_encontrado = false
-		#for index in range(inventario_logico.size()):
-			#var slot = inventario_logico[index]
-			## Verifica se o slot tem o mesmo item e é empilhável
-			#if slot.item_atual_do_slot and slot.item_atual_do_slot.item_id == item_recebido.item_id and slot.espaco_livre_na_pilha > 0:
-				#if itens_sobrando <= slot.espaco_livre_na_pilha:
-					#slot.somar_item_na_pilha(item_recebido, itens_sobrando)
-					#itens_sobrando = 0  # Zera para sair do while
-					#return true
-				#else:
-					#itens_sobrando = itens_sobrando - slot.espaco_livre_na_pilha
-					#slot.somar_item_na_pilha(item_recebido, slot.espaco_livre_na_pilha)
-					#espaço_encontrado = true
-			#
-			#elif slot.item_atual_do_slot == null:
-				#slot.espaco_livre_na_pilha = item_recebido.maximo_por_pilha
-				#if itens_sobrando <= slot.espaco_livre_na_pilha:
-					#slot.adicionar_item_ao_slot(item_recebido, itens_sobrando)
-					#itens_sobrando = 0  # Zera para sair do while
-					#return true
-				#else:
-					#itens_sobrando = itens_sobrando - slot.espaco_livre_na_pilha
-					#slot.adicionar_item_ao_slot(item_recebido, slot.espaco_livre_na_pilha)
-		#
-					#espaço_encontrado = true
-		#
-		#if not espaço_encontrado:  # Se nenhum espaço foi encontrado, sai do while
-			#break
-	#
-	#if itens_sobrando > 0:
-		#dropar_item_no_chao(item_recebido, itens_sobrando)
-		#return true
-	#else:
-		#return false
-	
-	return true
-	
-func remover_item_inventario(item: ItemBase, quantidade: int) -> bool: #Tentar modificar aqui passar direto o index.
-	if inventario_logico and inventario_logico.size() <= 0:
-		return false
 
-	var itens_faltando = 0
-	
-	for index in range(inventario_logico.size()):
-		var slot = inventario_logico[index]
-		# Verifica se o slot tem o mesmo item e é empilhável
-		if slot.item_atual_do_slot and slot.item_atual_do_slot.item_id == item.item_id:
-			if quantidade == slot.quantidade_atual_no_slot:
-				slot.remover_item_do_slot()
-				return true
-			elif quantidade < slot.quantidade_atual_no_slot:
-				slot.subtrair_quantia_da_pilha(quantidade)
-				return true
-			else:
-				itens_faltando = quantidade - slot.quantidade_atual_no_slot
-				slot.remover_item_do_slot()
+	#Quantidade que resta a cada vez que adiciona em algum slot
+	var quantidade_restante = quantidade
+
+	# 1. Tenta empilhar em slots existentes do mesmo item (somente se empilhável)
+	if item_recebido.estacavel and cache_slots_com_espaco.has(item_recebido.item_id):
+		var lista = cache_slots_com_espaco[item_recebido.item_id]
+		lista.sort()   # ordena para preencher os menores índices primeiro
+		var indices = lista.duplicate()
+		for slot_index in indices:
+			if quantidade_restante <= 0:
 				break
-				
+			var slot = inventario_logico[slot_index]
+			if slot.item_atual_do_slot and slot.item_atual_do_slot.item_id == item_recebido.item_id:
+				var cabem = min(quantidade_restante, slot.espaco_livre_na_pilha)
+				if cabem > 0:
+					slot.somar_quantia_na_pilha(item_recebido, cabem)
+					quantidade_restante -= cabem
+					if slot.espaco_livre_na_pilha == 0:
+						lista.erase(slot_index)   # remove da lista (ainda ordenada)
+			else:
+				lista.erase(slot_index)
+		if lista.is_empty():
+			cache_slots_com_espaco.erase(item_recebido.item_id)
+
+	# 2. Se ainda restam itens, usa slots vazios (ou para itens não empilháveis)
+	if quantidade_restante > 0 and not cache_slots_vazios.is_empty():
+		#coloca os slots em ordem crescente.
+		cache_slots_vazios.sort()
+		# Itera sobre cópia do cache de vazios
+		for slot_index in cache_slots_vazios.duplicate():
+			if quantidade_restante <= 0:
+				break
+			var slot = inventario_logico[slot_index]
 			
-	while itens_faltando > 0:
-		var item_encontrado = false
-		for index in range(inventario_logico.size()):
-			var slot = inventario_logico[index]
-			# Verifica se o slot tem o mesmo item e é empilhável
-			if slot.item_atual_do_slot and slot.item_atual_do_slot.item_id == item.item_id:
-				if itens_faltando == slot.quantidade_atual_no_slot:
-					slot.remover_item_do_slot()
-					return true
-				elif itens_faltando < slot.quantidade_atual_no_slot:
-					slot.subtrair_quantia_da_pilha(itens_faltando)
-					return true
-				else:
-					itens_faltando = itens_faltando - slot.item_atual_do_slot.maximo_por_pilha
-					slot.remover_item_do_slot()
-					item_encontrado = true
+			if not item_recebido.estacavel:
+				# Item não empilhável: adiciona 1 por slot
+				slot.adicionar_item_ao_slot(item_recebido, 1)
+				quantidade_restante -= 1
+				cache_slots_vazios.erase(slot_index)
+				# Não adiciona ao cache de espaço (item não empilhável não tem espaço)
+			else:
+				# Item empilhável: adiciona o máximo que cabe no slot
+				var colocar = min(quantidade_restante, item_recebido.maximo_por_pilha)
+				slot.adicionar_item_ao_slot(item_recebido, colocar)
+				quantidade_restante -= colocar
+				cache_slots_vazios.erase(slot_index)
+				
+				# Se o slot não ficou cheio, adiciona ao cache de espaço
+				if slot.espaco_livre_na_pilha > 0:
+					if not cache_slots_com_espaco.has(item_recebido.item_id):
+						cache_slots_com_espaco[item_recebido.item_id] = []
+					cache_slots_com_espaco[item_recebido.item_id].append(slot_index)
+
+	# 3. Se ainda sobrou, tenta expandir ou dropar
+	if quantidade_restante > 0:
+		# Política: expandir inventário (se desejar)
+		#var slots_necessarios = ceil(float(quantidade_restante) / item_recebido.maximo_por_pilha) if item_recebido.estacavel else quantidade_restante
+		#expandir_inventario(slots_necessarios)
+		# Chama recursivamente para tentar nos novos slots
+		print("Inventário cheio, não foi possível adicionar o item")
+		dropar_item_no_chao(item_recebido, quantidade_restante)
+		return adicionar_item_ao_inventario(item_recebido, quantidade_restante)
 		
-		if not item_encontrado:  # Se nenhum espaço foi encontrado, sai do while
+	
+	return true		
+		
+	
+func remover_item_inventario(item: ItemBase, quantidade: int) -> bool:
+	if inventario_logico.is_empty():
+		return false
+	
+	var quantidade_restante = quantidade
+	var item_id = item.item_id
+	
+	# Verifica se existe algum slot com este item
+	if not slots_por_item_id.has(item_id):
+		return false
+	
+	# Itera sobre uma cópia da lista (pois podemos modificar a lista original durante a remoção)
+	var indices = slots_por_item_id[item_id].duplicate()
+	for slot_index in indices:
+		if quantidade_restante <= 0:
 			break
+		var slot = inventario_logico[slot_index]
+		# Segurança: verifica se o slot ainda tem o mesmo item (pode ter mudado)
+		if slot.item_atual_do_slot and slot.item_atual_do_slot.item_id == item_id:
+			if quantidade_restante >= slot.quantidade_atual_no_slot:
+				# Remove todo o slot
+				quantidade_restante -= slot.quantidade_atual_no_slot
+				slot.remover_item_do_slot()   # isso emite sinais e atualiza caches
+			else:
+				# Remove parcialmente
+				slot.subtrair_quantia_da_pilha(quantidade_restante)
+				quantidade_restante = 0
+				# O sinal de quantidade_alterada será emitido, atualizando o cache de espaço
+		else:
+			# Slot não contém mais o item (inconsistência) - remove do cache
+			slots_por_item_id[item_id].erase(slot_index)
+	
+	# Após o loop, se a lista ficou vazia, remove a chave
+	if slots_por_item_id.has(item_id) and slots_por_item_id[item_id].is_empty():
+		slots_por_item_id.erase(item_id)
+	
+	# Se ainda restou quantidade, significa que não havia itens suficientes no inventário
+	if quantidade_restante > 0:
+		print("Não havia quantidade suficiente de ", item.nome_item, " para remover. Faltaram ", quantidade_restante)
+		return false
 	
 	return true
 		
 func dropar_item_no_chao(item: ItemBase, quantidade: int):
+	remover_item_inventario(item, quantidade)
 	print("Inventário cheio dropando ", quantidade, " de ", item.nome_item, " no chão.")
 	
-func add_slot_vazio_cache(slot:int):
-	pass
-	
-func remover_slot_vazio_cache():
-	pass
 	

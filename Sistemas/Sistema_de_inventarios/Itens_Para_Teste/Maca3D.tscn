@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bgua6uh8s6qy0" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca_3d.gd" id="1_un00x"]
 [ext_resource type="Script" uid="uid://bfeiphq2lyelj" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/coletavel-inventario.gd" id="2_u0wbd"]
 [ext_resource type="Resource" uid="uid://dnaux5elv6xig" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca.tres" id="3_1xbch"]
-[ext_resource type="Script" uid="uid://b6wcf33erjwqv" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item.gd" id="4_h66pq"]
+[ext_resource type="Script" uid="uid://b6wcf33erjwqv" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item_base.gd" id="4_h66pq"]
 
 [sub_resource type="Resource" id="Resource_maixe"]
 script = ExtResource("4_h66pq")

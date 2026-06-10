@@ -28,10 +28,12 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		hud_inventarios.visible = false
 		
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	print("Está identificando o item para dropar na área mas não funciona")
 	# Permite soltar apenas outro slot com item
 	return data is Control and data.has_method("get_slot_data")
 	
 func _drop_data(at_position: Vector2, data: Variant) -> void:
+	print("Dropando item e criando 3D mas falta arrumar o código")
 	#Criar maçã 3D
 	var cena_item_3d = load(data.get_slot_data().item_atual_do_slot.caminho_cena_item_3d)
 	
