@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqafoygyj302h"]
+[gd_scene format=3 uid="uid://dqafoygyj302h"]
 
 [ext_resource type="PackedScene" uid="uid://ds2d5358rsa64" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item_visual.tscn" id="1_x2bjc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x2bjc"]
 font_size = 61
 
-[node name="InventarioVisual" type="PanelContainer"]
+[node name="InventarioVisual" type="PanelContainer" unique_id=1254589136]
 self_modulate = Color(0.121569, 0.337255, 0.996078, 0.501961)
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,39 +13,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1541145856]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Grade_de_itens" type="GridContainer" parent="MarginContainer"]
+[node name="Grade_de_itens" type="GridContainer" parent="MarginContainer" unique_id=245915348]
 layout_mode = 2
 columns = 8
 
-[node name="SlotItem" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+[node name="SlotItem" parent="MarginContainer/Grade_de_itens" unique_id=426562565 instance=ExtResource("1_x2bjc")]
 layout_mode = 2
 
-[node name="SlotItem2" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+[node name="SlotItem2" parent="MarginContainer/Grade_de_itens" unique_id=57336095 instance=ExtResource("1_x2bjc")]
 layout_mode = 2
 
-[node name="SlotItem3" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+[node name="SlotItem3" parent="MarginContainer/Grade_de_itens" unique_id=694334895 instance=ExtResource("1_x2bjc")]
 layout_mode = 2
 
-[node name="SlotItem4" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+[node name="SlotItem4" parent="MarginContainer/Grade_de_itens" unique_id=1320846452 instance=ExtResource("1_x2bjc")]
 layout_mode = 2
 
-[node name="SlotItem5" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+[node name="SlotItem5" parent="MarginContainer/Grade_de_itens" unique_id=178639347 instance=ExtResource("1_x2bjc")]
 layout_mode = 2
 
-[node name="SlotItem6" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+[node name="SlotItem6" parent="MarginContainer/Grade_de_itens" unique_id=1874156095 instance=ExtResource("1_x2bjc")]
 layout_mode = 2
 
-[node name="SlotItem7" parent="MarginContainer/Grade_de_itens" instance=ExtResource("1_x2bjc")]
+[node name="SlotItem7" parent="MarginContainer/Grade_de_itens" unique_id=1991067573 instance=ExtResource("1_x2bjc")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=959603050]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4

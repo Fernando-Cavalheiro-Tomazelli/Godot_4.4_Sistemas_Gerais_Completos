@@ -6,6 +6,8 @@ var quantidade_item : int
 @export var label: Label
 
 var slot_logico : SlotItemBase
+
+var inventario_dono = null
  
 func _ready() -> void:
 	texture_rect.texture = icone_slot
@@ -33,6 +35,9 @@ func att_info_slot_visual():
 	
 	
 func _get_drag_data(_pos):
+	# Verifica se o slot tem item
+	if slot_logico == null or slot_logico.item_atual_do_slot == null:
+		return null
 
 	var preview = TextureRect.new()
 	preview.texture = icone_slot
@@ -42,31 +47,75 @@ func _get_drag_data(_pos):
 	preview.size.y = 32
 	set_drag_preview(preview)
 
-	return slot_logico #quando clica ele pega esse return com a informaçao
+	# Dados a serem carregados no drag
+	var drag_data = {
+		"inventario_origem": inventario_dono,      # referência ao InventarioBase dono
+		"slot_origem_idx": slot_logico.index_do_slot,
+		"item": slot_logico.item_atual_do_slot,
+		"quantidade": slot_logico.quantidade_atual_no_slot,
+		"caminho_cena_3d": slot_logico.item_atual_do_slot.caminho_cena_item_3d
+	}
+	return drag_data
 	
 func _can_drop_data(at_position: Vector2, data: Variant):
-	if data == slot_logico:
-		return
-		
-	if data.item_atual_do_slot:
-		#if data.item_atual_do_slot == slot_logico.item_atual_do_slot:
-			#return
-			
-		return data
+	# Verifica se os dados são do tipo esperado (dicionário com as chaves)
+	if not data is Dictionary or not data.has("inventario_origem") or not data.has("slot_origem_idx"):
+		return false
+
+	# Impede soltar no mesmo slot
+	var origem_inv = data["inventario_origem"]
+	var origem_idx = data["slot_origem_idx"]
+	if origem_inv == inventario_dono and origem_idx == slot_logico.index_do_slot:
+		return false
+
+	# Se o slot destino está vazio, sempre pode soltar
+	if slot_logico.item_atual_do_slot == null:
+		return true
+
+	# Se o slot destino está ocupado
+	var item_origem = data["item"]
+	var item_destino = slot_logico.item_atual_do_slot
+	var qtd_origem = data["quantidade"]
+
+	# Mesmo inventário: usa a lógica de troca/empilhamento (sempre permite)
+	if origem_inv == inventario_dono:
+		return true
+
+	# Inventários diferentes: permite soltar se:
+	# - Itens iguais e empilháveis E cabe pelo menos 1 unidade no destino
+	# - Itens diferentes (vai trocar, então permite)
+	if item_origem.item_id == item_destino.item_id and item_origem.estacavel:
+		return slot_logico.espaco_livre_na_pilha > 0
+	else:
+		# Itens diferentes -> troca, sempre permite (mas vai trocar todo o stack)
+		return true
 		
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-		
-	if slot_logico.item_atual_do_slot == null:
-		slot_logico.item_atual_do_slot = data.item_atual_do_slot
-		slot_logico.quantidade_atual_no_slot = data.quantidade_atual_no_slot
-		data.remover_item_do_slot()
-		
+	
+	var origem_inv = data["inventario_origem"]
+	var origem_idx = data["slot_origem_idx"]
+	var destino_idx = slot_logico.index_do_slot
+	var destino_inv = inventario_dono
+
+	# Se for o mesmo inventário -> usa função interna
+	if origem_inv == destino_inv:
+		origem_inv.trocar_mover_empilhar_item(origem_idx, destino_idx)
 	else:
+		# Inventários diferentes -> usa transferência
+		# Quantidade: pode vir do data["quantidade"] ou usar -1 (tudo)
+		var quantidade = data.get("quantidade", -1)
+		origem_inv.transferir_entre_inventarios(destino_inv, origem_idx, destino_idx, quantidade)
 		
-		var item_recebido = data.item_atual_do_slot
-		var quantidade_recebida = data.quantidade_atual_no_slot
-		data.remover_item_do_slot()
-		data.adicionar_item_ao_slot(slot_logico.item_atual_do_slot, slot_logico.quantidade_atual_no_slot)
-		slot_logico.remover_item_do_slot()
-		slot_logico.adicionar_item_ao_slot(item_recebido,quantidade_recebida)
+		
+		
+	#var drag_data = data
+	#var origem_idx = drag_data.index_do_slot
+	#var destino_idx = slot_logico.index_do_slot   # método que retorna o índice deste slot
+	#if origem_idx != destino_idx:
+		#if not inventario_dono:
+			#print("Slots visuais não possuem um inventário dono")
+			#return
+		## Chama a função de troca/empilhamento
+		#inventario_dono.trocar_mover_empilhar_item(origem_idx, destino_idx)	
+	
 		

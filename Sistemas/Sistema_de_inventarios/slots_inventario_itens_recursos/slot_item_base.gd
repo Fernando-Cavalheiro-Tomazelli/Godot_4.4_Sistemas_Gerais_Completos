@@ -35,3 +35,5 @@ func subtrair_quantia_da_pilha(quantidade : int):
 		espaco_livre_na_pilha = 1
 	else:
 		quantidade_atual_no_slot = quantidade_atual_no_slot - quantidade
+		
+		

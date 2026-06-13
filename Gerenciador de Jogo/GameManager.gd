@@ -19,4 +19,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		menu_ativo_in_game.queue_free()
 		menu_ativo_in_game = null
 	
-		
+	#função somente para testes.

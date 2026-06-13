@@ -15,6 +15,7 @@ func _ready() -> void:
 		var inventario_logico = self.get_parent().find_child("ComponentManager").Inventario.inventario_logico
 		var local_inventario = self.find_child("LocalInventarioPlayer")
 		
+		inventario_visual.inventario_origem = self.get_parent().find_child("ComponentManager").Inventario
 		inventario_visual.iniciar_inventario_visual_(inventario_logico, local_inventario)
 	
 
@@ -27,15 +28,23 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and hud_inventarios.visible == true:
 		hud_inventarios.visible = false
 		
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	print("Está identificando o item para dropar na área mas não funciona")
-	# Permite soltar apenas outro slot com item
-	return data is Control and data.has_method("get_slot_data")
+func _can_drop_data(at_position: Vector2, data: Variant):
+	# Verifica se os dados são do tipo esperado (dicionário com as chaves)
+	if data is Dictionary and data.has("caminho_cena_3d"): #or data.has("inventario_origem") or not data.has("slot_origem_idx"):
+		return true 
 	
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	print("Dropando item e criando 3D mas falta arrumar o código")
+	var slot_data = data  # O SlotItemBase arrastado
+	
+	if not slot_data and not slot_data["item"] and not slot_data["inventario_origem"]:
+		return
+	
+	# Remove o slot inteiro do inventário
+	data["inventario_origem"].remover_item_slot_completo(slot_data["slot_origem_idx"])
+		# Depois cria o item 3D (como você já faz)
+		
 	#Criar maçã 3D
-	var cena_item_3d = load(data.get_slot_data().item_atual_do_slot.caminho_cena_item_3d)
+	var cena_item_3d = load(slot_data["caminho_cena_3d"])
 	
 	var item_3d = cena_item_3d.instantiate()
 	get_tree().current_scene.add_child(item_3d)
@@ -45,8 +54,6 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	spawn_position.y = player_pos.y + 0.5
 	item_3d.global_position = spawn_position
 	
-	#Excluir maçã do inventário
-	player.inventario.remover_item_inventario(data.get_slot_data())
 	
 
 

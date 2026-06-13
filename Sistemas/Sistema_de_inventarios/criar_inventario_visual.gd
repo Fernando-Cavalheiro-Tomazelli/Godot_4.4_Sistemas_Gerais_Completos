@@ -3,6 +3,7 @@ class_name CriarSlotsVisuaisInventario
 
 var slot_visual = preload("res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item_visual.tscn")
 	
+var inventario_origem = null
 
 func iniciar_inventario_visual_(inventario_logico : Array[SlotItemBase], local_inventario : Control):
 	#limpar slots visuais caso existam
@@ -15,6 +16,7 @@ func iniciar_inventario_visual_(inventario_logico : Array[SlotItemBase], local_i
 		var novo_slot = slot_visual.instantiate()
 		
 		novo_slot.slot_logico = slot_atual #adiciona o numero de index da array logica para o slot visual
+		novo_slot.inventario_dono = inventario_origem
 		local_inventario.add_child(novo_slot)
 	print("foi iniciado inventario visual de : ")
 	
