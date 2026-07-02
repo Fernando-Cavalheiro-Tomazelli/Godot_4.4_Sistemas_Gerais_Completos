@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://dnaux5elv6xig"]
+[gd_resource type="Resource" script_class="ItemBase" format=3 uid="uid://dnaux5elv6xig"]
 
 [ext_resource type="Script" uid="uid://bwxgvo4ot73ij" path="res://Sistemas/Sistema_de_inventarios/item_base.gd" id="1_83yx8"]
 [ext_resource type="Texture2D" uid="uid://c4qa5o2pdgdl7" path="res://Resources/icones/maca.png" id="1_e5fx1"]
@@ -10,6 +10,5 @@ nome_item = "Maça Vermelha"
 descricao_item = "Um maça vermelha suculenta."
 icone_item = ExtResource("1_e5fx1")
 estacavel = true
-maximo_por_pilha = 2
-caminho_cena_item_3d = ""
+caminho_cena_item_3d = "res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/apple_visual.tscn"
 metadata/_custom_type_script = "uid://bwxgvo4ot73ij"

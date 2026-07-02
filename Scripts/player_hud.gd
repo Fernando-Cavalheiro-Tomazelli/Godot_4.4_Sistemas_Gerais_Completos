@@ -38,3 +38,14 @@ func remover_icone_efeitos(efeito : Resource):
 	
 
 		
+
+
+func _on_organizar_inv_button_down() -> void:
+	if not self.get_parent().find_child("ComponentManager"):
+		return
+	if not self.get_parent().find_child("ComponentManager").Inventario:
+		return
+	var inventario = self.get_parent().find_child("ComponentManager").Inventario
+	
+	inventario.organizar_inventario()
+	

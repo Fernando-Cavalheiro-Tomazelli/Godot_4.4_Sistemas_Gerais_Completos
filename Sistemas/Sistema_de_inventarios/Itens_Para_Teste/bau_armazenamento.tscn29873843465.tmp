@@ -24,6 +24,7 @@ size = Vector3(2.5, 1.5, 1.5)
 
 [node name="BauArmazenamento" type="StaticBody3D" unique_id=1192004133]
 script = ExtResource("1_4gb3k")
+nome = null
 
 [node name="ComponentManager" type="Node" parent="." unique_id=2113411103]
 script = ExtResource("2_4gb3k")

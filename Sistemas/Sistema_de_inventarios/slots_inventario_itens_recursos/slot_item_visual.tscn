@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds2d5358rsa64"]
+[gd_scene format=3 uid="uid://ds2d5358rsa64"]
 
 [ext_resource type="Script" uid="uid://dd2vqblsx0syw" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item_visual.gd" id="1_7lnwl"]
 [ext_resource type="Texture2D" uid="uid://dxyxxg3h3dx0b" path="res://Resources/icones/icon.svg" id="2_7lnwl"]
@@ -8,7 +8,7 @@ font_size = 20
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[node name="SlotItem" type="Control" node_paths=PackedStringArray("texture_rect", "label")]
+[node name="SlotItem" type="Control" unique_id=11182586 node_paths=PackedStringArray("icone_slot", "label", "efeito_selecionado")]
 self_modulate = Color(0, 0.338085, 0.658692, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
@@ -18,20 +18,22 @@ offset_right = -51.2
 offset_bottom = -65.6
 focus_mode = 1
 script = ExtResource("1_7lnwl")
-texture_rect = NodePath("MarginContainer/Icone_Slot")
+icone_slot = NodePath("MarginContainer/Icone_Slot")
 label = NodePath("MarginContainer/Quantia_Slot")
+efeito_selecionado = NodePath("Efeito_visual_selecionado")
+icone_default = ExtResource("2_7lnwl")
 
-[node name="CorFundoSlot" type="ColorRect" parent="."]
+[node name="CorFundoSlot" type="ColorRect" parent="." unique_id=88945983]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 color = Color(0.12549, 0.619608, 1, 0.788235)
 
-[node name="Efeito_visual_selecionado" type="ColorRect" parent="."]
+[node name="Efeito_visual_selecionado" type="ColorRect" parent="." unique_id=1482185479]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -39,8 +41,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
-[node name="Efeito_visual_drag" type="ColorRect" parent="."]
+[node name="Efeito_visual_drag" type="ColorRect" parent="." unique_id=863843164]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -48,38 +51,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 color = Color(1, 1, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=46308811]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="Icone_Slot" type="TextureRect" parent="MarginContainer"]
+[node name="Icone_Slot" type="TextureRect" parent="MarginContainer" unique_id=1765585971]
 layout_mode = 2
-mouse_filter = 2
 texture = ExtResource("2_7lnwl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Quantia_Slot" type="Label" parent="MarginContainer"]
+[node name="Quantia_Slot" type="Label" parent="MarginContainer" unique_id=988868151]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+mouse_filter = 1
 text = "999"
 label_settings = SubResource("LabelSettings_41sud")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

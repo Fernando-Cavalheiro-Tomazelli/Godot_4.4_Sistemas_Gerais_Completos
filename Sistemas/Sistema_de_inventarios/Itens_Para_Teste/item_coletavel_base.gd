@@ -5,6 +5,9 @@ extends StaticBody3D
 
 
 func _ready() -> void:
+	if not item_slot:
+		return
+	
 	if item_slot and item_slot.item_atual_do_slot and item_slot.item_atual_do_slot.caminho_cena_item_3d:
 		
 		var item3d = load(item_slot.item_atual_do_slot.caminho_cena_item_3d)

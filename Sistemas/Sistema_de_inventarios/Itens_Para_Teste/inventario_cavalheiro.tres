@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventarioBase" format=3 uid="uid://cf0ahcnkaout7"]
+
+[ext_resource type="Script" uid="uid://b17cjulvgwcry" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/inventario_base.gd" id="1_ftj55"]
+
+[resource]
+script = ExtResource("1_ftj55")
+tamanho_inventario = 15
+dono_do_inventario = null
+metadata/_custom_type_script = "uid://b17cjulvgwcry"

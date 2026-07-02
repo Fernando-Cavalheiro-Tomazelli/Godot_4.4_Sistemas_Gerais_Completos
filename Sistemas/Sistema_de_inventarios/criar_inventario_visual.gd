@@ -17,6 +17,7 @@ func iniciar_inventario_visual_(inventario_logico : Array[SlotItemBase], local_i
 		
 		novo_slot.slot_logico = slot_atual #adiciona o numero de index da array logica para o slot visual
 		novo_slot.inventario_dono = inventario_origem
+		novo_slot.slot_index = slot_atual.index_do_slot
 		local_inventario.add_child(novo_slot)
 	print("foi iniciado inventario visual de : ")
 	

@@ -1,50 +1,47 @@
 extends Control
 
-var icone_slot : Texture2D
-var quantidade_item : int
-@export var texture_rect: TextureRect
+@export var icone_slot : TextureRect = null
 @export var label: Label
+@export var efeito_selecionado: ColorRect
+@export var icone_default : Texture2D
+
+#variáveis internas
+var quantidade_item : int
+var textura_icone: TextureRect
 
 var slot_logico : SlotItemBase
-
+var slot_index : int
 var inventario_dono = null
+
+var selecionado : bool
  
 func _ready() -> void:
-	texture_rect.texture = icone_slot
+	BusSignal.att_inventario_visual.connect(att_info_slot_visual)
 	
 	
-func _process(delta: float) -> void:
-	if slot_logico.item_atual_do_slot:
-		att_info_slot_visual()
-	else:
-		texture_rect.texture = null
-		label.text = ""
-		icone_slot = null
-		quantidade_item = 0
-	
-func att_info_slot_visual():
-	if slot_logico.item_atual_do_slot.icone_item != icone_slot or slot_logico.quantidade_atual_no_slot != quantidade_item:
-		print("Atualizando info dos slots visuais")
-		texture_rect.texture = slot_logico.item_atual_do_slot.icone_item
-		icone_slot = slot_logico.item_atual_do_slot.icone_item
-		if slot_logico.quantidade_atual_no_slot == 1:
-			label.text = ""
-		else:
-			label.text = str(slot_logico.quantidade_atual_no_slot)
-		quantidade_item = slot_logico.quantidade_atual_no_slot
-	
+func att_info_slot_visual(index, icone, quantia):
+	if index != slot_index:
+		return
+	icone_slot.texture = icone if icone else icone_default
+	label.text = str(quantia) if quantia > 1 else ""
+			
+
+func limpar_slot_visual() -> void:
+	icone_slot.texture = null
+	label.text = ""
+	quantidade_item = 0
 	
 func _get_drag_data(_pos):
 	# Verifica se o slot tem item
 	if slot_logico == null or slot_logico.item_atual_do_slot == null:
 		return null
 
-	var preview = TextureRect.new()
-	preview.texture = icone_slot
-	preview.EXPAND_IGNORE_SIZE
-	preview.STRETCH_KEEP_ASPECT_CENTERED
-	preview.size.x = 32
-	preview.size.y = 32
+	var preview = self.duplicate() #TextureRect.new()
+	#preview.texture = icone_slot
+	#preview.EXPAND_IGNORE_SIZE
+	#preview.STRETCH_KEEP_ASPECT_CENTERED
+	#preview.size.x = 32
+	#preview.size.y = 32
 	set_drag_preview(preview)
 
 	# Dados a serem carregados no drag
@@ -97,25 +94,17 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	var destino_idx = slot_logico.index_do_slot
 	var destino_inv = inventario_dono
 
-	# Se for o mesmo inventário -> usa função interna
-	if origem_inv == destino_inv:
-		origem_inv.trocar_mover_empilhar_item(origem_idx, destino_idx)
-	else:
-		# Inventários diferentes -> usa transferência
-		# Quantidade: pode vir do data["quantidade"] ou usar -1 (tudo)
-		var quantidade = data.get("quantidade", -1)
-		origem_inv.transferir_entre_inventarios(destino_inv, origem_idx, destino_idx, quantidade)
+	# Chamada única: a função já decide a melhor ação (empilhar, trocar, mover)
+	origem_inv.trocar_mover_slots(origem_inv, origem_idx, destino_inv, destino_idx)
 		
-		
-		
-	#var drag_data = data
-	#var origem_idx = drag_data.index_do_slot
-	#var destino_idx = slot_logico.index_do_slot   # método que retorna o índice deste slot
-	#if origem_idx != destino_idx:
-		#if not inventario_dono:
-			#print("Slots visuais não possuem um inventário dono")
-			#return
-		## Chama a função de troca/empilhamento
-		#inventario_dono.trocar_mover_empilhar_item(origem_idx, destino_idx)	
 	
 		
+
+
+func _on_focus_entered() -> void:
+	print("Estou clicando e está selecionando o slot")
+	efeito_selecionado.visible = true
+
+
+func _on_focus_exited() -> void:
+	efeito_selecionado.visible = false

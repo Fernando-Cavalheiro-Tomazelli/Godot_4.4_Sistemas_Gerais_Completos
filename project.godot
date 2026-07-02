@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Sistemas_Completos_Gerais"
 run/main_scene="uid://dq4xb37bbrt5m"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://cvm8b2hcf671y"
 
 [autoload]
@@ -26,6 +26,8 @@ MultiplayerClientConfig="*res://MultiplayerManager/Cliente/multiplayer_client_co
 GameManager="*res://Gerenciador de Jogo/GameManager.gd"
 SceneManager="*uid://bt3ool2kcph5x"
 PlayerManager="*uid://by6u3jkgdv5q4"
+PoolsGerais="*uid://b8n8va6rsj3su"
+BusSignal="*uid://cb2yfs2qf0y3g"
 
 [display]
 

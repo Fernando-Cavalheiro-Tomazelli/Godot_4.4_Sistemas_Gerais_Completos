@@ -31,7 +31,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _can_drop_data(at_position: Vector2, data: Variant):
 	# Verifica se os dados são do tipo esperado (dicionário com as chaves)
 	if data is Dictionary and data.has("caminho_cena_3d"): #or data.has("inventario_origem") or not data.has("slot_origem_idx"):
-		return true 
+		return true
+	return false
 	
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	var slot_data = data  # O SlotItemBase arrastado
@@ -40,7 +41,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 		return
 	
 	# Remove o slot inteiro do inventário
-	data["inventario_origem"].remover_item_slot_completo(slot_data["slot_origem_idx"])
+	data["inventario_origem"].remover_item_do_slot(slot_data["slot_origem_idx"],slot_data["quantidade"])
 		# Depois cria o item 3D (como você já faz)
 		
 	#Criar maçã 3D

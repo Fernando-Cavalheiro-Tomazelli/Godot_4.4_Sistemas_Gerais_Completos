@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://b2fv1rp7j5mt0" path="res://Resources/Texturas/wood_cabinet_worn_long_nor_gl_2k.jpg" id="2_0gcuh"]
 [ext_resource type="Texture2D" uid="uid://biwb2c2mtdpmk" path="res://Resources/Texturas/wood_cabinet_worn_long_rough_2k.jpg" id="3_25mgo"]
 [ext_resource type="PackedScene" uid="uid://bsownd8njeoui" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/item_coletavel_base.tscn" id="5_2q2r0"]
+[ext_resource type="PackedScene" uid="uid://diqsut1cdl703" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/bau_armazenamento.tscn" id="7_mvcve"]
+[ext_resource type="Resource" uid="uid://dnaux5elv6xig" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/maca.tres" id="7_vwj6m"]
+[ext_resource type="Script" uid="uid://b6wcf33erjwqv" path="res://Sistemas/Sistema_de_inventarios/slots_inventario_itens_recursos/slot_item_base.gd" id="8_cbene"]
+[ext_resource type="Resource" uid="uid://dbu5l2112e4sd" path="res://Sistemas/Sistema_de_inventarios/Itens_Para_Teste/livro_azul.tres" id="9_3ftrx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nq5dv"]
 albedo_texture = ExtResource("1_l1xmg")
@@ -31,6 +35,30 @@ orientation = 2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_25mgo"]
 points = PackedVector3Array(15, 1.5, 0, 15, -1.5, 0, -15, 1.5, 0, -15, -1.5, 0)
+
+[sub_resource type="Resource" id="Resource_1055s"]
+script = ExtResource("8_cbene")
+item_atual_do_slot = ExtResource("7_vwj6m")
+quantidade_atual_no_slot = 2
+metadata/_custom_type_script = "uid://b6wcf33erjwqv"
+
+[sub_resource type="Resource" id="Resource_b2lp2"]
+script = ExtResource("8_cbene")
+item_atual_do_slot = ExtResource("9_3ftrx")
+quantidade_atual_no_slot = 3
+metadata/_custom_type_script = "uid://b6wcf33erjwqv"
+
+[sub_resource type="Resource" id="Resource_jlyyj"]
+script = ExtResource("8_cbene")
+item_atual_do_slot = ExtResource("7_vwj6m")
+quantidade_atual_no_slot = 3
+metadata/_custom_type_script = "uid://b6wcf33erjwqv"
+
+[sub_resource type="Resource" id="Resource_xvhf4"]
+script = ExtResource("8_cbene")
+item_atual_do_slot = ExtResource("9_3ftrx")
+quantidade_atual_no_slot = 5
+metadata/_custom_type_script = "uid://b6wcf33erjwqv"
 
 [node name="LobbyPrincipalInicial" type="Node3D" unique_id=1657871735]
 script = ExtResource("1_2q2r0")
@@ -87,15 +115,22 @@ shape = SubResource("ConvexPolygonShape3D_25mgo")
 
 [node name="ItemColetavelBase" parent="." unique_id=1228337249 instance=ExtResource("5_2q2r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.976948, 0.3531263, 6.136338)
+item_slot = SubResource("Resource_1055s")
 
 [node name="ItemColetavelBase2" parent="." unique_id=1025289772 instance=ExtResource("5_2q2r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.835573, 0.3531263, 3.159351)
+item_slot = SubResource("Resource_b2lp2")
 
 [node name="ItemColetavelBase3" parent="." unique_id=1532644077 instance=ExtResource("5_2q2r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0156765, 0.3531263, 0.13192964)
+item_slot = SubResource("Resource_jlyyj")
 
 [node name="ItemColetavelBase4" parent="." unique_id=1361858240 instance=ExtResource("5_2q2r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.698908, 0.3531263, -4.030388)
+item_slot = SubResource("Resource_xvhf4")
 
 [node name="ItemColetavelBase5" parent="." unique_id=1354411999 instance=ExtResource("5_2q2r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.965618, 0.3531263, -8.28914)
+
+[node name="BauArmazenamento" parent="." unique_id=1601669104 instance=ExtResource("7_mvcve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.701655, 0.35657603, -8.538836)
